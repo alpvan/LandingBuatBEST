@@ -21,16 +21,16 @@ const TeamLogos: React.FC = () => {
               Official Game Divisions
             </h3>
           </Reveal>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-12 w-full">
             {teams.map((team, index) => (
               <Reveal key={index} delay={index * 100} direction="up">
-                <div 
+                <div
                   className="group flex flex-col items-center gap-3 transition-all duration-300 hover:-translate-y-2"
                 >
                   <div className="w-24 h-24 rounded-full bg-surface-dark-2 border border-gray-800 flex items-center justify-center p-4 group-hover:border-primary group-hover:shadow-glow transform group-hover:scale-110 transition-all duration-300 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <img 
+                    <img
                       src={`https://placehold.co/150x150/1A1A1A/FFD700?text=${team.id}&font=orbitron`}
                       alt={`${team.name} Logo`}
                       className="w-full h-full object-contain opacity-60 group-hover:opacity-100 transition-all duration-300 grayscale group-hover:grayscale-0 rounded-full"

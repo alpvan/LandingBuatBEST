@@ -3,6 +3,7 @@ import Reveal from './Reveal';
 import RegistrationModal from './RegistrationModal';
 import EventDetailsModal from './EventDetailsModal';
 import { ArrowRight, Calendar, Clock, MapPin } from 'lucide-react';
+import GlitchReveal from './GlitchReveal';
 import ParallaxSection from './ParallaxSection';
 
 const Events: React.FC = () => {
@@ -11,11 +12,11 @@ const Events: React.FC = () => {
 
   const events = [
     {
-      date: '15',
-      month: 'Nov 2023',
-      title: 'Open Recruitment Batch X',
-      desc: 'Pendaftaran anggota baru UKM Brawijaya Esport untuk semua divisi game.',
-      btn: 'Register',
+      date: '99',
+      month: 'Januari 2026',
+      title: 'Open Recruitment Batch 2',
+      desc: 'aca apa ja yang terdekat nanti',
+      btn: 'Daftar',
       active: true,
       details: {
         schedule: '15 Nov - 30 Nov 2023',
@@ -26,39 +27,39 @@ const Events: React.FC = () => {
       }
     },
     {
-      date: '02',
-      month: 'Dec 2023',
-      title: 'Internal Scrim: MLBB',
-      desc: 'Latihan tanding antar anggota internal divisi Mobile Legends.',
+      date: '99',
+      month: 'Januari 2026',
+      title: 'Nama Event',
+      desc: 'aca apa ja yang terdekat nanti',
       tag: 'Members Only',
       active: false,
       details: {
-        schedule: '2 December 2023, 19:00 WIB',
-        location: 'Discord Server',
-        prizePool: 'Bragging Rights',
-        teams: 'Internal Teams A & B',
-        fullDesc: 'Weekly internal scrimmage to improve team chemistry.'
+        schedule: 'Serah',
+        location: 'Di Mana Mana',
+        prizePool: 'Duwek',
+        teams: 'Se antero dunia',
+        fullDesc: 'Yang Bikin Website butuh duit'
       }
     },
     {
-      date: '20',
-      month: 'Dec 2023',
-      title: 'UB Rector Cup 2023',
-      desc: 'Turnamen terbesar antar fakultas se-Universitas Brawijaya.',
+      date: '99',
+      month: 'Januari 2026',
+      title: 'Nama Event',
+      desc: 'aca apa ja yang terdekat nanti',
       btn: 'Info',
       active: true,
       details: {
-        schedule: '20-22 December 2023',
-        location: 'Samantha Krida Hall',
-        prizePool: 'IDR 15.000.000 + Certificate',
-        teams: 'Representatives from 15 Faculties',
-        fullDesc: 'The annual Rector Cup is back! Witness the battle of faculties.'
+        schedule: 'Serah',
+        location: 'Di Mana Mana',
+        prizePool: 'Duwek',
+        teams: 'Se antero dunia',
+        fullDesc: 'Yang Bikin Website butuh duit'
       }
     },
   ];
 
   const handleRegisterClick = (title: string, action?: string) => {
-    if (action === 'Register') {
+    if (action === 'Daftar') {
       setSelectedEvent(title);
     } else if (action === 'Info') {
       const evt = events.find(e => e.title === title);
@@ -73,16 +74,7 @@ const Events: React.FC = () => {
         className="py-20 md:py-32"
         backgroundContent={
           <>
-            {/* Subtle grid */}
-            <div className="absolute inset-0 opacity-[0.02]"
-              style={{
-                backgroundImage: `
-                  linear-gradient(rgba(255,215,0,1) 1px, transparent 1px),
-                  linear-gradient(90deg, rgba(255,215,0,1) 1px, transparent 1px)
-                `,
-                backgroundSize: '60px 60px'
-              }}
-            />
+
 
             {/* Parallax glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" style={{ animation: 'glowPulse 5s ease-in-out infinite 1s' }}></div>
@@ -93,20 +85,24 @@ const Events: React.FC = () => {
           <Reveal>
             <div className="text-center mb-16">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-primary/20 to-amber-500/20 border border-primary/30 mx-auto">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                <span className="text-primary font-display text-xs font-bold tracking-[0.15em] uppercase">
-                  Acara
-                </span>
-              </div>
+              <GlitchReveal>
+                <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-primary/20 to-amber-500/20 border border-primary/30 mx-auto">
+                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                  <span className="text-primary font-display text-xs font-bold tracking-[0.15em] uppercase">
+                    Acara
+                  </span>
+                </div>
+              </GlitchReveal>
 
               {/* Title */}
-              <h3 className="text-3xl md:text-5xl font-display font-black">
-                <span className="text-white">Jadwal </span>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-300 to-amber-400">
-                  Mendatang
-                </span>
-              </h3>
+              <GlitchReveal>
+                <h3 className="text-3xl md:text-5xl font-display font-black">
+                  <span className="text-white">Jadwal </span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-300 to-amber-400">
+                    Mendatang
+                  </span>
+                </h3>
+              </GlitchReveal>
             </div>
           </Reveal>
 
@@ -139,7 +135,7 @@ const Events: React.FC = () => {
                       onClick={() => setDetailEvent(event)}
                       className="text-primary text-xs font-bold uppercase tracking-wider hover:text-white transition-colors inline-flex items-center gap-1"
                     >
-                      Learn More <ArrowRight className="w-3 h-3" />
+                      Pelajari Lebih Lanjut <ArrowRight className="w-3 h-3" />
                     </button>
                   </div>
 
@@ -179,7 +175,7 @@ const Events: React.FC = () => {
         onClose={() => setDetailEvent(null)}
         event={detailEvent}
         onRegister={() => {
-          if (detailEvent?.btn === 'Register') {
+          if (detailEvent?.btn === 'Daftar') {
             setDetailEvent(null);
             setSelectedEvent(detailEvent.title);
           }

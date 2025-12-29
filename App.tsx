@@ -5,8 +5,8 @@ import BackgroundParticles from './components/BackgroundParticles';
 import Hero from './components/Hero';
 import About from './components/About';
 import TeamLogos from './components/TeamLogos';
-import Organization from './components/Organization'; // Added
-import Activities from './components/Activities';
+import Organization from './components/Organization';
+import Prestasi from './components/Prestasi';
 import Events from './components/Events';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -34,16 +34,16 @@ const App: React.FC = () => {
          or just use CSS opacity control controlled by the loading state if we wanted
          a cross-fade. Here we strictly swap or overlay.
       */}
-      <div className={`transition-opacity duration-1000 ${loading ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
+      <div className={`transition-opacity duration-1000 ${loading ? 'opacity-0 invisible' : 'opacity-100 visible'}`}>
         <BackgroundParticles />
         <Navbar />
 
         <main className="relative z-10">
           <Hero />
           <About />
-          <TeamLogos />
+
           <Organization />
-          <Activities />
+          <Prestasi />
           <Events />
           <Contact />
         </main>

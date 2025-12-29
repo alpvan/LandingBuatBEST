@@ -13,8 +13,8 @@ const BackgroundParticles: React.FC = () => {
     let animationFrameId: number;
     let width = window.innerWidth;
     let height = window.innerHeight;
-    
-    // Set canvas dimensions
+
+    // dimensi ne kanvas
     const resize = () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
@@ -22,7 +22,7 @@ const BackgroundParticles: React.FC = () => {
     window.addEventListener('resize', resize);
     resize();
 
-    // Particle definition
+    // posisi ne partivle
     class Particle {
       x: number;
       y: number;
@@ -94,11 +94,32 @@ const BackgroundParticles: React.FC = () => {
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      id="bg-canvas"
-      className="fixed top-0 left-0 w-full h-full z-0 opacity-30 pointer-events-none"
-    />
+    <>
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        {/* Global base background */}
+        <div className="absolute inset-0 bg-black"></div>
+
+        {/* Global dot/grid pattern */}
+        <div className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(255,215,0,1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,215,0,1) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px'
+          }}
+        />
+
+        {/* Global subtle gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black/80"></div>
+      </div>
+
+      <canvas
+        ref={canvasRef}
+        id="bg-canvas"
+        className="fixed top-0 left-0 w-full h-full z-0 opacity-30 pointer-events-none"
+      />
+    </>
   );
 };
 

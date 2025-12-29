@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X, Sparkles, ShoppingBag } from 'lucide-react';
 import Logo from './Logo';
 
 const Navbar: React.FC = () => {
@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
           setIsScrolled(window.scrollY > 50);
 
           // Detect active section
-          const sections = ['about', 'organization', 'activities', 'events', 'committee', 'contact'];
+          const sections = ['about', 'organization', 'prestasi', 'events', 'committee', 'contact'];
           let currentSection = '';
 
           for (const section of sections) {
@@ -43,9 +43,10 @@ const Navbar: React.FC = () => {
   const navLinks = [
     { name: 'Profile', href: '#about', id: 'about' },
     { name: 'Pengurus', href: '#organization', id: 'organization' },
-    { name: 'Kegiatan', href: '#activities', id: 'activities' },
+    { name: 'Prestasi', href: '#prestasi', id: 'prestasi' },
     { name: 'Acara', href: '#events', id: 'events' },
-  ];
+    { name: 'Saran', href: '#contact', id: 'contact' },
+  ] as Array<{ name: string; href: string; id: string; external?: boolean }>;
 
   return (
     <nav
@@ -85,6 +86,8 @@ const Navbar: React.FC = () => {
                 <a
                   key={link.name}
                   href={link.href}
+                  target={link.external ? '_blank' : undefined}
+                  rel={link.external ? 'noopener noreferrer' : undefined}
                   className={`relative px-4 py-2 rounded-lg font-display text-xs font-medium uppercase tracking-wider transition-all duration-300 ${activeSection === link.id
                     ? 'text-black bg-primary shadow-[0_0_20px_rgba(255,215,0,0.4)]'
                     : 'text-gray-300 hover:text-white hover:bg-white/10'
@@ -94,16 +97,17 @@ const Navbar: React.FC = () => {
                 </a>
               ))}
             </div>
-
             {/* CTA Button */}
             <a
-              href="#contact"
+              href="https://www.instagram.com/brawijayaesports.store/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="ml-4 px-5 py-2.5 rounded-xl bg-gradient-to-r from-primary to-yellow-400 text-black font-display text-xs font-bold uppercase tracking-wider 
                          hover:shadow-[0_0_30px_rgba(255,215,0,0.5)] hover:scale-105 
                          transition-all duration-300 flex items-center gap-2"
             >
-              <Sparkles className="w-3.5 h-3.5" />
-              Hubungi
+              <ShoppingBag className="w-3.5 h-3.5" />
+              Merchandise
             </a>
           </div>
 
@@ -131,6 +135,8 @@ const Navbar: React.FC = () => {
               <a
                 key={link.name}
                 href={link.href}
+                target={link.external ? '_blank' : undefined}
+                rel={link.external ? 'noopener noreferrer' : undefined}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`flex items-center px-4 py-3 rounded-xl font-display text-sm font-medium transition-all duration-300 ${activeSection === link.id
                   ? 'bg-primary text-black'
@@ -143,12 +149,14 @@ const Navbar: React.FC = () => {
             ))}
           </div>
           <a
-            href="#contact"
+            href="https://www.instagram.com/brawijayaesports.store/"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setIsMobileMenuOpen(false)}
             className="mt-4 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-primary to-yellow-400 text-black font-display text-sm font-bold transition-all duration-300"
           >
-            <Sparkles className="w-4 h-4" />
-            Hubungi Kami
+            <ShoppingBag className="w-4 h-4" />
+            Merchandise
           </a>
         </div>
       </div>

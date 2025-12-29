@@ -3,7 +3,7 @@ import Reveal from './Reveal';
 import TextScramble from './TextScramble';
 import GlitchReveal from './GlitchReveal';
 import CountUp from './CountUp';
-import { ChevronDown, Play, Calendar, Trophy, Users } from 'lucide-react';
+import { ChevronDown, Info, Calendar, Trophy, Users } from 'lucide-react';
 import Logo3D from './Logo3D';
 
 const Hero: React.FC = () => {
@@ -55,24 +55,15 @@ const Hero: React.FC = () => {
   }, []);
 
   const stats = [
-    { icon: Trophy, end: 50, suffix: '+', label: 'Achievements' },
-    { icon: Users, end: 800, suffix: '+', label: 'Members' },
-    { icon: Calendar, end: 20, suffix: '+', label: 'Events/Year' },
+    { icon: Trophy, end: 50, suffix: '+', label: 'Prestasi' },
+    { icon: Users, end: 800, suffix: '+', label: 'Anggota' },
+    { icon: Calendar, end: 20, suffix: '+', label: 'Acara/Tahun' },
   ];
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-40">
 
-      {/* Animated Background Grid */}
-      <div className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(255,215,0,1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,215,0,1) 1px, transparent 1px)
-          `,
-          backgroundSize: '60px 60px'
-        }}
-      />
+
 
       {/* Gradient Overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black pointer-events-none z-0"></div>
@@ -99,9 +90,8 @@ const Hero: React.FC = () => {
               {/* Badge */}
               <GlitchReveal delay={500}>
                 <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-gradient-to-r from-primary/20 to-amber-500/20 border border-primary/30 backdrop-blur-sm">
-                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
                   <span className="text-primary font-display text-xs font-bold tracking-[0.15em] uppercase">
-                    Official Esports Community
+                    Brawijaya Esport
                   </span>
                 </div>
               </GlitchReveal>
@@ -111,21 +101,25 @@ const Hero: React.FC = () => {
               <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-black tracking-tight mb-8 leading-none">
                 <GlitchReveal delay={800}>
                   <div className="flex flex-col gap-2">
-                    <span className="text-white drop-shadow-xl filter">
-                      <TextScramble text="BRAWIJAYA" delay={1000} />
-                    </span>
-                    <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-300 to-amber-400 drop-shadow-[0_0_35px_rgba(255,215,0,0.4)]">
-                      <TextScramble text="ESPORT" delay={1500} />
-                      {/* Glitch overlay elements */}
-                      <span className="absolute top-0 left-0 -ml-1 text-primary/30 opacity-0 animate-ping pointer-events-none">ESPORT</span>
-                    </span>
+                    <GlitchReveal delay={800}>
+                      <span className="text-white drop-shadow-xl filter">
+                        <TextScramble text="BRAWIJAYA" delay={1000} />
+                      </span>
+                    </GlitchReveal>
+                    <GlitchReveal delay={1000}>
+                      <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-300 to-amber-400 drop-shadow-[0_0_35px_rgba(255,215,0,0.4)]">
+                        <TextScramble text="ESPORT" delay={1500} />
+                        {/* Glitch overlay elements */}
+                        <span className="absolute top-0 left-0 -ml-1 text-primary/30 opacity-0 animate-ping pointer-events-none">ESPORT</span>
+                      </span>
+                    </GlitchReveal>
                   </div>
                 </GlitchReveal>
               </h1>
 
               {/* Description */}
               <p className="mt-8 max-w-2xl text-base md:text-lg text-gray-400 leading-relaxed">
-                Unit Kegiatan Mahasiswa (UKM) <span className="text-white font-bold">Brawijaya E-Sport (BEST)</span> adalah komunitas e-sports terbesar di Universitas Brawijaya. Sejak 2021, kami mewadahi 800+ anggota dan membina tim kompetitif (MLBB, HOK, PUBGM, Valorant) untuk berprestasi di tingkat nasional dengan menjunjung tinggi sportivitas.
+                Unit Kegiatan Mahasiswa (UKM) <span className="text-white font-bold">Brawijaya E-Sport (BEST)</span> adalah komunitas e-sports di Universitas Brawijaya. Sejak 2021, kami mewadahi 800+ anggota dan membina tim kompetitif (MLBB, HOK, PUBGM, Valorant) untuk berprestasi di tingkat nasional dengan menjunjung tinggi sportivitas.
               </p>
 
               {/* CTA Buttons */}
@@ -136,8 +130,8 @@ const Hero: React.FC = () => {
                            hover:shadow-[0_0_40px_rgba(255,215,0,0.4)] hover:scale-105
                            transition-all duration-300 text-center flex items-center justify-center gap-2"
                 >
-                  <Play className="w-4 h-4 fill-current" />
-                  JOIN THE LEGACY
+                  <Info className="w-4 h-4" />
+                  TENTANG KAMI
                 </a>
                 <a
                   href="#events"
@@ -146,7 +140,7 @@ const Hero: React.FC = () => {
                            transition-all duration-300 text-center flex items-center justify-center gap-2"
                 >
                   <Calendar className="w-4 h-4" />
-                  LIHAT JADWAL
+                  LIHAT ACARA
                 </a>
               </div>
 
@@ -229,7 +223,7 @@ const Hero: React.FC = () => {
         className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer group z-50"
         onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
       >
-        <span className="text-xs text-gray-500 uppercase tracking-widest group-hover:text-primary transition-colors">Scroll</span>
+        <span className="text-xs text-gray-500 uppercase tracking-widest group-hover:text-primary transition-colors">Gulir</span>
         <div className="w-6 h-10 rounded-full border-2 border-gray-600 group-hover:border-primary transition-colors flex justify-center pt-2">
           <div className="w-1 h-2 bg-gray-500 group-hover:bg-primary rounded-full animate-bounce transition-colors"></div>
         </div>
@@ -240,31 +234,43 @@ const Hero: React.FC = () => {
         <div className="flex items-center relative">
           {/* Label */}
           <div className="hidden md:flex items-center h-full px-8 bg-black/50 backdrop-blur-xl border-r border-white/10 z-10 absolute left-0 top-0 bottom-0">
-            <span className="text-xs font-display font-bold text-gray-500 uppercase tracking-widest">Sponsored By</span>
+            <span className="text-xs font-display font-bold text-gray-500 uppercase tracking-widest">didukung oleh</span>
           </div>
 
           {/* Scrolling Logos */}
           <div className="flex items-center gap-12 animate-[marquee_20s_linear_infinite] group-hover:[animation-play-state:paused] pl-4 md:pl-40">
-            {/* Fake Sponsors */}
-            {Array.from({ length: 10 }).map((_, i) => (
-              <div key={i} className="flex items-center gap-3 opacity-40 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 cursor-pointer">
+            {/* Real Sponsors */}
+            {[
+              "Moonton",
+              "PUBGM Indonesia",
+              "RIOT Games Indonesia",
+              "UniPin Indonesia",
+              "Jawara PUBGM Indonesia"
+            ].map((sponsor, i) => (
+              <div key={i} className="flex items-center gap-3 opacity-60 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 cursor-pointer">
                 {/* Placeholder Tech/Gaming Logos */}
                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${i % 3 === 0 ? 'bg-red-500/20' : i % 3 === 1 ? 'bg-blue-500/20' : 'bg-green-500/20'}`}>
                   <div className={`w-4 h-4 rounded-sm ${i % 3 === 0 ? 'bg-red-500' : i % 3 === 1 ? 'bg-blue-500' : 'bg-green-500'}`}></div>
                 </div>
-                <span className="text-sm font-bold font-display tracking-wider text-gray-300">
-                  {i % 3 === 0 ? 'ROG' : i % 3 === 1 ? 'LOGITECH' : 'NVIDIA'}
+                <span className="text-sm font-bold font-display tracking-wider text-gray-300 whitespace-nowrap">
+                  {sponsor}
                 </span>
               </div>
             ))}
             {/* Duplicate for Loop */}
-            {Array.from({ length: 10 }).map((_, i) => (
-              <div key={`dup-${i}`} className="flex items-center gap-3 opacity-40 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 cursor-pointer">
+            {[
+              "Moonton",
+              "PUBGM Indonesia",
+              "RIOT Games Indonesia",
+              "UniPin Indonesia",
+              "Jawara PUBGM Indonesia"
+            ].map((sponsor, i) => (
+              <div key={`dup-${i}`} className="flex items-center gap-3 opacity-60 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 cursor-pointer">
                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${i % 3 === 0 ? 'bg-red-500/20' : i % 3 === 1 ? 'bg-blue-500/20' : 'bg-green-500/20'}`}>
                   <div className={`w-4 h-4 rounded-sm ${i % 3 === 0 ? 'bg-red-500' : i % 3 === 1 ? 'bg-blue-500' : 'bg-green-500'}`}></div>
                 </div>
-                <span className="text-sm font-bold font-display tracking-wider text-gray-300">
-                  {i % 3 === 0 ? 'ROG' : i % 3 === 1 ? 'LOGITECH' : 'NVIDIA'}
+                <span className="text-sm font-bold font-display tracking-wider text-gray-300 whitespace-nowrap">
+                  {sponsor}
                 </span>
               </div>
             ))}

@@ -70,7 +70,7 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose, 
           {!isSubmitted ? (
             <>
               <div className="mb-8 border-b border-gray-800 pb-4">
-                <h4 className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-2">Event Registration</h4>
+                <h4 className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-2">Pendaftaran Acara</h4>
                 <h2 className="text-2xl md:text-3xl font-display font-bold text-white leading-tight">
                   {eventName}
                 </h2>
@@ -79,63 +79,51 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose, 
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="space-y-1">
                   <label className="text-xs text-gray-400 uppercase tracking-wider flex items-center gap-2">
-                    <User className="w-3 h-3" /> Full Name
+                    <User className="w-3 h-3" /> Nama Lengkap
                   </label>
                   <input
                     required
                     type="text"
                     className="w-full bg-surface-dark-2 border border-gray-700 p-3 text-white focus:border-primary focus:outline-none focus:shadow-glow transition-all rounded-sm"
-                    placeholder="Enter your full name"
+                    placeholder="Masukkan nama lengkap Anda"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1">
                     <label className="text-xs text-gray-400 uppercase tracking-wider flex items-center gap-2">
-                      <FileDigit className="w-3 h-3" /> NIM / Student ID
+                      <FileDigit className="w-3 h-3" /> NIM
                     </label>
                     <input
                       required
                       type="text"
                       className="w-full bg-surface-dark-2 border border-gray-700 p-3 text-white focus:border-primary focus:outline-none focus:shadow-glow transition-all rounded-sm"
-                      placeholder="e.g., 215150..."
+                      placeholder="mis. 215150..."
                     />
                   </div>
                   <div className="space-y-1">
                     <label className="text-xs text-gray-400 uppercase tracking-wider flex items-center gap-2">
-                      <School className="w-3 h-3" /> Faculty
+                      <School className="w-3 h-3" /> Fakultas
                     </label>
                     <input
                       required
                       type="text"
                       className="w-full bg-surface-dark-2 border border-gray-700 p-3 text-white focus:border-primary focus:outline-none focus:shadow-glow transition-all rounded-sm"
-                      placeholder="e.g., Filkom"
+                      placeholder="mis. Filkom"
                     />
                   </div>
                 </div>
 
-                <div className="space-y-1">
-                  <label className="text-xs text-gray-400 uppercase tracking-wider flex items-center gap-2">
-                    <Gamepad2 className="w-3 h-3" /> Game ID / Nickname
-                  </label>
-                  <input
-                    required
-                    type="text"
-                    className="w-full bg-surface-dark-2 border border-gray-700 p-3 text-white focus:border-primary focus:outline-none focus:shadow-glow transition-all rounded-sm"
-                    placeholder="e.g., ProPlayer#1234"
-                  />
-                </div>
+
 
                 <div className="pt-4">
                   <button
                     type="submit"
                     className="w-full bg-primary text-black font-display font-bold text-lg py-4 hover:bg-white hover:shadow-glow transition-all duration-300 clip-polygon"
                   >
-                    CONFIRM REGISTRATION
+                    KONFIRMASI PENDAFTARAN
                   </button>
-                  <p className="text-center text-xs text-gray-500 mt-4">
-                    By registering, you agree to the tournament rules and regulations.
-                  </p>
+
                 </div>
               </form>
             </>
@@ -144,15 +132,15 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose, 
               <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-6">
                 <CheckCircle className="w-10 h-10 text-primary drop-shadow-[0_0_10px_rgba(255,215,0,0.5)]" />
               </div>
-              <h3 className="text-2xl font-display font-bold text-white mb-2">Registration Successful!</h3>
+              <h3 className="text-2xl font-display font-bold text-white mb-2">Pendaftaran Berhasil!</h3>
               <p className="text-gray-400 mb-8 max-w-xs">
-                You have successfully registered for <span className="text-primary">{eventName}</span>. Check your email for further instructions.
+                Anda berhasil mendaftar untuk <span className="text-primary">{eventName}</span>. Periksa email Anda untuk instruksi lebih lanjut.
               </p>
               <button
                 onClick={onClose}
                 className="px-8 py-3 border border-primary text-primary hover:bg-primary hover:text-black transition-all duration-300 font-bold uppercase tracking-wider text-sm"
               >
-                Close
+                Tutup
               </button>
             </div>
           )}

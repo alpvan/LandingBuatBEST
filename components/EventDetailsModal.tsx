@@ -79,7 +79,7 @@ const EventDetailsModal: React.FC<EventDetailsModalProps> = ({ isOpen, onClose, 
 
         <div className="p-8 overflow-y-auto custom-scrollbar">
           <div className="mb-6 border-b border-gray-800 pb-6">
-            <span className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-2 block">Event Details</span>
+            <span className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-2 block">Detail Acara</span>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-white leading-tight mb-4">{event.title}</h2>
             <div className="flex flex-wrap items-center text-gray-400 text-sm gap-6">
               <span className="flex items-center gap-2"><Calendar className="w-4 h-4 text-primary" /> {event.date} {event.month}</span>
@@ -88,7 +88,7 @@ const EventDetailsModal: React.FC<EventDetailsModalProps> = ({ isOpen, onClose, 
           </div>
 
           <div className="prose prose-invert max-w-none mb-8">
-            <h4 className="text-white font-display font-bold text-lg mb-2">Description</h4>
+            <h4 className="text-white font-display font-bold text-lg mb-2">Deskripsi</h4>
             <p className="text-gray-300 leading-relaxed text-sm md:text-base">
               {event.details?.fullDesc || event.desc}
             </p>
@@ -98,36 +98,36 @@ const EventDetailsModal: React.FC<EventDetailsModalProps> = ({ isOpen, onClose, 
             <div className="bg-surface-dark-2 p-4 border border-gray-800 rounded-sm hover:border-primary/30 transition-colors">
               <div className="flex items-center gap-2 mb-2 text-primary">
                 <Clock className="w-4 h-4" />
-                <span className="text-xs font-bold uppercase tracking-wider">Schedule</span>
+                <span className="text-xs font-bold uppercase tracking-wider">Jadwal</span>
               </div>
               <p className="text-sm text-white font-medium">{event.details?.schedule || "TBA"}</p>
             </div>
             <div className="bg-surface-dark-2 p-4 border border-gray-800 rounded-sm hover:border-primary/30 transition-colors">
               <div className="flex items-center gap-2 mb-2 text-primary">
                 <Users className="w-4 h-4" />
-                <span className="text-xs font-bold uppercase tracking-wider">Participants</span>
+                <span className="text-xs font-bold uppercase tracking-wider">Peserta</span>
               </div>
-              <p className="text-sm text-white font-medium">{event.details?.teams || "Open for All"}</p>
+              <p className="text-sm text-white font-medium">{event.details?.teams || "Terbuka untuk Semua"}</p>
             </div>
             <div className="bg-surface-dark-2 p-4 border border-gray-800 rounded-sm hover:border-primary/30 transition-colors">
               <div className="flex items-center gap-2 mb-2 text-primary">
                 <Trophy className="w-4 h-4" />
-                <span className="text-xs font-bold uppercase tracking-wider">Prize Pool</span>
+                <span className="text-xs font-bold uppercase tracking-wider">Hadiah</span>
               </div>
-              <p className="text-sm text-white font-medium">{event.details?.prizePool || "Certificate & Glory"}</p>
+              <p className="text-sm text-white font-medium">{event.details?.prizePool || "Sertifikat & Kehormatan"}</p>
             </div>
           </div>
 
-          {(event.btn === 'Register' || event.btn === 'Info') && event.active && (
+          {(event.btn === 'Daftar' || event.btn === 'Info') && event.active && (
             <div className="pt-4 border-t border-gray-800">
               <button
                 onClick={onRegister}
                 className="w-full bg-primary text-black font-display font-bold text-lg py-4 hover:bg-white hover:shadow-glow transition-all duration-300 clip-polygon uppercase tracking-wider flex items-center justify-center gap-2"
               >
-                {event.btn === 'Register' ? 'Register Now' : 'More Information'}
+                {event.btn === 'Daftar' ? 'Daftar Sekarang' : 'Informasi Lebih Lanjut'}
               </button>
               <p className="text-center text-xs text-gray-500 mt-3">
-                Registration closes 2 days before the event starts.
+                Pendaftaran ditutup 2 hari sebelum acara dimulai.
               </p>
             </div>
           )}

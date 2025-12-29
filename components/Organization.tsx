@@ -4,80 +4,82 @@ import Reveal from './Reveal';
 import MemberCard from './MemberCard';
 import TextScramble from './TextScramble';
 
-// Helper to generate staff data
-const generateStaff = (division: string, count: number, startIdx = 1) => {
+import GlitchReveal from './GlitchReveal';
+
+// Helper to generate  data
+const generate = (division: string, count: number, startIdx = 1) => {
     return Array.from({ length: count }, (_, i) => ({
         name: `${division} Member ${startIdx + i}`,
-        role: `${division} STAFF`,
+        role: `${division} `,
         division: division,
         color: "from-blue-500 to-cyan-500" // Default color
     }));
 };
 
 // Data Definition
-const ORGANIZATION_DATA: Record<string, { name: string; role: string; division: string; color: string }[]> = {
+const memberPhotoPath = "/LandingBuatBEST/anggota/Alvan.png";
+
+const ORGANIZATION_DATA: Record<string, { name: string; role: string; division: string; color: string; image?: string }[]> = {
     BPI: [
-        { name: "Abiyasa Satria Lintang Perkasa", role: "KETUA UMUM", division: "BPI", color: "from-yellow-400 to-orange-500" },
-        { name: "Muhammad Alvan Javierul Haq", role: "SEKRETARIS 1", division: "BPI", color: "from-yellow-400 to-orange-500" },
-        { name: "ismail hamzah manaf", role: "SEKRETARIS 2", division: "BPI", color: "from-yellow-400 to-orange-500" },
-        { name: "Nerisa Dewi Arvianti", role: "BENDAHARA", division: "BPI", color: "from-yellow-400 to-orange-500" },
-        { name: "Fanti Dwi Amawati", role: "WAKIL KETUA 1", division: "Community", color: "from-purple-500 to-pink-500" },
-        { name: "Imelda Ikhfi Rahmadanti", role: "WAKIL KETUA 2", division: "Internal", color: "from-orange-500 to-red-500" },
-        { name: "Muhammad Ronaa Setyoni Putra", role: "WAKIL KETUA 3", division: "Talent", color: "from-cyan-500 to-blue-600" },
-        { name: "Rananda Ardiawan", role: "COMMUNITY DIRECTOR", division: "Community", color: "from-purple-400 to-pink-400" },
-        { name: "Ki Bagus Kusuma Adjinegara", role: "INTERNAL DIRECTOR", division: "Internal", color: "from-orange-400 to-red-400" },
+        { name: "Abiyasa Satria Lintang Perkasa", role: "KETUA UMUM", division: "BPI", color: "from-yellow-400 to-orange-500", image: memberPhotoPath },
+        { name: "Ismail Hamzah Manaf", role: "SEKRETARIS 1", division: "BPI", color: "from-yellow-400 to-orange-500", image: memberPhotoPath },
+        { name: "Muhammad Alvan Javierul Haq", role: "SEKRETARIS 2", division: "BPI", color: "from-yellow-400 to-orange-500", image: memberPhotoPath },
+        { name: "Nerisa Dewi Arvianti", role: "BENDAHARA", division: "BPI", color: "from-yellow-400 to-orange-500", image: memberPhotoPath },
+        { name: "Fanti Dwi Amawati", role: "WAKIL KETUA 1", division: "BPI", color: "from-purple-500 to-pink-500", image: memberPhotoPath },
+        { name: "Imelda Ikhfi Rahmadanti", role: "WAKIL KETUA 2", division: "BPI", color: "from-orange-500 to-red-500", image: memberPhotoPath },
+        { name: "Muhammad Ronaa Setyoni Putra", role: "WAKIL KETUA 3", division: "BPI", color: "from-cyan-500 to-blue-600", image: memberPhotoPath },
+        { name: "Rananda Ardiawan", role: "COMMUNITY DIRECTOR", division: "BPI", color: "from-purple-400 to-pink-400", image: memberPhotoPath },
+        { name: "Ki Bagus Kusuma Adjinegara", role: "INTERNAL DIRECTOR", division: "BPI", color: "from-orange-400 to-red-400", image: memberPhotoPath },
     ],
     HRD: [
-        { name: "Muhammad Hilmii Saliim", role: "HRD STAFF", division: "HRD", color: "from-orange-400 to-red-400" },
-        { name: "Danish Abdurochman", role: "HRD STAFF", division: "HRD", color: "from-orange-400 to-red-400" },
-        { name: "Muhammad Putra Abhinaya", role: "HRD STAFF", division: "HRD", color: "from-orange-400 to-red-400" },
-        { name: "Azzahra Shafa As'adiyati", role: "HRD STAFF", division: "HRD", color: "from-orange-400 to-red-400" },
+        { name: "Muhammad Hilmii Saliim", role: "HRD ", division: "HRD", color: "from-orange-400 to-red-400", image: memberPhotoPath },
+        { name: "Danish Abdurochman", role: "HRD ", division: "HRD", color: "from-orange-400 to-red-400", image: memberPhotoPath },
+        { name: "Muhammad Putra Abhinaya", role: "HRD ", division: "HRD", color: "from-orange-400 to-red-400", image: memberPhotoPath },
+        { name: "Azzahra Shafa As'adiyati", role: "HRD ", division: "HRD", color: "from-orange-400 to-red-400", image: memberPhotoPath },
     ],
     MLBB: [
-        { name: "Adib Insanul Godi", role: "MLBB STAFF", division: "MLBB", color: "from-purple-400 to-pink-400" },
-        { name: "Bimo Abi Umardhani", role: "MLBB STAFF", division: "MLBB", color: "from-purple-400 to-pink-400" },
-        { name: "Nabil Syabdwi Putra", role: "MLBB STAFF", division: "MLBB", color: "from-purple-400 to-pink-400" },
-        { name: "Javier Narayana", role: "MLBB STAFF", division: "MLBB", color: "from-purple-400 to-pink-400" },
-        { name: "MOH. RIFQI PRADITYA", role: "MLBB STAFF", division: "MLBB", color: "from-purple-400 to-pink-400" },
+        { name: "Adib Insanul Godi", role: "MLBB ", division: "MLBB", color: "from-purple-400 to-pink-400", image: memberPhotoPath },
+        { name: "Bimo Abi Umardhani", role: "MLBB ", division: "MLBB", color: "from-purple-400 to-pink-400", image: memberPhotoPath },
+        { name: "Nabil Syabdwi Putra", role: "MLBB ", division: "MLBB", color: "from-purple-400 to-pink-400", image: memberPhotoPath },
+        { name: "Hasna Yusra Najar", role: "MLBB ", division: "MLBB", color: "from-purple-400 to-pink-400", image: memberPhotoPath },
     ],
     PUBGM: [
-        { name: "Muhammad Rizky Andika Pratama", role: "PUBGM STAFF", division: "PUBGM", color: "from-emerald-400 to-teal-500" },
+        { name: "Kirania Dannah Roqhiibah", role: "PUBGM ", division: "PUBGM", color: "from-emerald-400 to-teal-500", image: memberPhotoPath },
+        { name: "Ryan Putra Adivara", role: "PUBGM ", division: "PUBGM", color: "from-emerald-400 to-teal-500", image: memberPhotoPath },
     ],
-    COMMUNITY: [
-        { name: "Haidar Ali", role: "COMMUNITY STAFF", division: "COMMUNITY", color: "from-indigo-400 to-blue-500" },
-        { name: "Satria Dwi Saputra", role: "COMMUNITY STAFF", division: "COMMUNITY", color: "from-indigo-400 to-blue-500" },
-        { name: "Radite Arsa Manggala", role: "COMMUNITY STAFF", division: "COMMUNITY", color: "from-indigo-400 to-blue-500" },
-        { name: "Satriyo Wibowo", role: "COMMUNITY STAFF", division: "COMMUNITY", color: "from-indigo-400 to-blue-500" },
-        { name: "Fawwazi Fathur Rahman", role: "COMMUNITY STAFF", division: "COMMUNITY", color: "from-indigo-400 to-blue-500" },
+    CM: [
+        { name: "Anziela Awwaliya Atsya Rohmah", role: "CM ", division: "CM", color: "from-indigo-400 to-blue-500", image: memberPhotoPath },
+        { name: "Muhammad Wisnu Hamdani", role: "CM ", division: "CM", color: "from-indigo-400 to-blue-500", image: memberPhotoPath },
+        { name: "Syifa Amalia Hariyanti", role: "CM ", division: "CM", color: "from-indigo-400 to-blue-500", image: memberPhotoPath },
     ],
-    CREATIVE: [
-        { name: "M. Nabil Rabbani", role: "CREATIVE STAFF", division: "CREATIVE", color: "from-pink-400 to-rose-500" },
-        { name: "I Dewa Gede Agastya Darma", role: "CREATIVE STAFF", division: "CREATIVE", color: "from-pink-400 to-rose-500" },
-        { name: "Radinka Janu Mahardika", role: "CREATIVE STAFF", division: "CREATIVE", color: "from-pink-400 to-rose-500" },
-        { name: "Syabina Ramadani Salsabila", role: "CREATIVE STAFF", division: "CREATIVE", color: "from-pink-400 to-rose-500" },
-        { name: "Adinda Putri Maharani", role: "CREATIVE STAFF", division: "CREATIVE", color: "from-pink-400 to-rose-500" },
-        { name: "Najwa Syalwa Kamila", role: "CREATIVE STAFF", division: "CREATIVE", color: "from-pink-400 to-rose-500" },
-        { name: "Rizky Firmansyah", role: "CREATIVE STAFF", division: "CREATIVE", color: "from-pink-400 to-rose-500" },
+    MF: [
+        { name: "Salsabila Nathania Azalia", role: "MF ", division: "MF", color: "from-pink-400 to-rose-500", image: memberPhotoPath },
+        { name: "Akeyla Kiral Musyaffa Majid", role: "MF ", division: "MF", color: "from-pink-400 to-rose-500", image: memberPhotoPath },
+        { name: "Dyfan Dzakirah Putra Risdyanto", role: "MF ", division: "MF", color: "from-pink-400 to-rose-500", image: memberPhotoPath },
     ],
-    EVENT: [
-        { name: "Muhammad Faishal Anshary", role: "EVENT STAFF", division: "EVENT", color: "from-yellow-400 to-orange-500" },
-        { name: "Naufal Ramadhan", role: "EVENT STAFF", division: "EVENT", color: "from-yellow-400 to-orange-500" },
-        { name: "Muhammad Nabil Farras", role: "EVENT STAFF", division: "EVENT", color: "from-yellow-400 to-orange-500" },
-        { name: "Fadhil Firoos Rabbani", role: "EVENT STAFF", division: "EVENT", color: "from-yellow-400 to-orange-500" },
-        { name: "Alfonso Timothius Sitompul", role: "EVENT STAFF", division: "EVENT", color: "from-yellow-400 to-orange-500" },
-        { name: "Bagus Dwi Sasongko", role: "EVENT STAFF", division: "EVENT", color: "from-yellow-400 to-orange-500" },
-        { name: "Muhammad Naufal Alaudin", role: "EVENT STAFF", division: "EVENT", color: "from-yellow-400 to-orange-500" },
+    PR: [
+        { name: "Nur Alfina Ramadhani", role: "PR ", division: "PR", color: "from-yellow-400 to-orange-500", image: memberPhotoPath },
+        { name: "Muhammad Ilham David S", role: "PR ", division: "PR", color: "from-yellow-400 to-orange-500", image: memberPhotoPath },
+        { name: "Fania Mutiara Felichia", role: "PR ", division: "PR", color: "from-yellow-400 to-orange-500", image: memberPhotoPath },
+        { name: "Mohammad Arman Zaki", role: "PR ", division: "PR", color: "from-yellow-400 to-orange-500", image: memberPhotoPath },
     ],
     VALORANT: [
-        { name: "Cavin Anthonius Imanuel", role: "VALORANT STAFF", division: "VALORANT", color: "from-purple-400 to-pink-400" },
-        { name: "I Gede Bagus Agung S.M", role: "VALORANT STAFF", division: "VALORANT", color: "from-purple-400 to-pink-400" },
-        { name: "Muhammad Fahmi Athanaya", role: "VALORANT STAFF", division: "VALORANT", color: "from-purple-400 to-pink-400" },
+        { name: "Lintang Alfarani Atikafitra", role: "VALORANT ", division: "VALORANT", color: "from-red-400 to-rose-500", image: memberPhotoPath },
+        { name: "Muhammad Fahmi Athanaya", role: "VALORANT ", division: "VALORANT", color: "from-red-400 to-rose-500", image: memberPhotoPath },
+    ],
+    HOK: [
+        { name: "Tio Afandi", role: "HOK ", division: "HOK", color: "from-blue-400 to-cyan-500", image: memberPhotoPath },
+        { name: "Bisma Putra Aria Wijaya", role: "HOK ", division: "HOK", color: "from-blue-400 to-cyan-500", image: memberPhotoPath },
+    ],
+    FE: [
+        { name: "Muhammad Hakim Al Hasyir", role: "FE ", division: "FE", color: "from-orange-400 to-amber-500", image: memberPhotoPath },
+        { name: "Muhammad Naufal Rizqiansyah", role: "FE ", division: "FE", color: "from-orange-400 to-amber-500", image: memberPhotoPath },
     ],
 };
 
 const TABS = Object.keys(ORGANIZATION_DATA);
 
-const BPITreeLayout = () => {
+const BPITreeLayout = ({ setActiveTab }: { setActiveTab: (tab: string) => void }) => {
     const getMember = (rolePart: string) => ORGANIZATION_DATA.BPI.find(m => m.role.includes(rolePart));
 
     const ketua = getMember("KETUA");
@@ -116,35 +118,36 @@ const BPITreeLayout = () => {
         }
     };
 
-    const goldLineClass = "bg-gradient-to-b from-yellow-300 via-amber-400 to-yellow-500 shadow-[0_0_8px_rgba(251,191,36,0.8)]";
-    const goldLineHorizClass = "bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-500 shadow-[0_0_8px_rgba(251,191,36,0.8)]";
+    const goldLineClass = "bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]";
+    const goldLineHorizClass = "bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]";
 
     return (
-        <div className="flex flex-col items-center w-full max-w-7xl mx-auto p-4">
+        <div className="w-full overflow-x-auto pb-4">
+            <div className="flex flex-col items-center min-w-[768px] md:min-w-full w-full max-w-7xl mx-auto p-4">
 
-            {/* LEVEL 1: KETUA UMUM */}
-            <div className="relative flex flex-col items-center mb-12">
-                <Reveal>
-                    {ketua && <MemberCard {...ketua} />}
-                </Reveal>
-            </div>
+                {/* LEVEL 1: KETUA UMUM */}
+                <div className="relative flex flex-col items-center mb-6">
+                    <Reveal>
+                        {ketua && <MemberCard {...ketua} />}
+                    </Reveal>
 
-            {/* Vertical Line from Ketua down to Sek/Ben T-junction */}
-            <div className="relative w-1 h-16 -mb-8">
-                <motion.div
-                    variants={lineVertical}
-                    initial="hidden"
-                    animate="visible"
-                    transition={{ delay: 0.2 }}
-                    className={`w-full h-full ${goldLineClass}`}
-                />
-            </div>
+                    {/* Vertical Line from Ketua down to horizontal bar */}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-16 -z-10">
+                        <motion.div
+                            variants={lineVertical}
+                            initial="hidden"
+                            animate="visible"
+                            transition={{ delay: 0.2 }}
+                            className={`w-full h-full ${goldLineClass}`}
+                        />
+                    </div>
+                </div>
 
-            {/* LEVEL 2: SEKRETARIS & BENDAHARA */}
-            <div className="relative w-full mb-12">
-                {/* Horizontal T-bar above cards */}
-                <div className="absolute -top-8 left-0 right-0 flex justify-center pointer-events-none z-0">
-                    <div className="relative h-1 w-[85%] lg:w-[75%]">
+                {/* LEVEL 2: SEKRETARIS & BENDAHARA */}
+                <div className="relative w-full mb-12">
+
+                    {/* Horizontal T-bar connecting all three cards */}
+                    <div className="hidden lg:block absolute top-0 left-1/2 -translate-x-1/2 w-[85%] lg:w-[75%] h-1 -z-10">
                         <motion.div
                             variants={lineHorizontal}
                             initial="hidden"
@@ -153,146 +156,217 @@ const BPITreeLayout = () => {
                             className={`w-full h-full ${goldLineHorizClass}`}
                         />
 
-                        {/* Three vertical drops to cards */}
+                        {/* Vertical Riser to meet Ketua (Upwards) */}
+                        <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-8 ${goldLineClass}`}></div>
+
+                        {/* Vertical drops to each card with DOTS - Extended to go behind cards */}
+                        {/* Left drop (Sekretaris 1) */}
                         <motion.div
                             variants={lineVertical}
-                            initial="hidden"
-                            animate="visible"
-                            transition={{ delay: 0.6 }}
-                            className={`absolute top-0 left-[16.666%] -translate-x-1/2 w-1 h-8 ${goldLineClass}`}
-                        />
-                        <motion.div
-                            variants={lineVertical}
-                            initial="hidden"
-                            animate="visible"
-                            transition={{ delay: 0.6 }}
-                            className={`absolute top-0 left-1/2 -translate-x-1/2 w-1 h-8 ${goldLineClass}`}
-                        />
-                        <motion.div
-                            variants={lineVertical}
-                            initial="hidden"
-                            animate="visible"
-                            transition={{ delay: 0.6 }}
-                            className={`absolute top-0 left-[83.333%] -translate-x-1/2 w-1 h-8 ${goldLineClass}`}
-                        />
-                    </div>
-                </div>
-
-                {/* Three Cards */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-[85%] lg:w-[75%] mx-auto">
-                    <Reveal delay={200}>
-                        <div className="flex flex-col items-center">
-                            {sek1 && <MemberCard {...sek1} />}
-                        </div>
-                    </Reveal>
-
-                    <Reveal delay={250}>
-                        <div className="flex flex-col items-center">
-                            {sek2 && <MemberCard {...sek2} />}
-                        </div>
-                    </Reveal>
-
-                    <Reveal delay={300}>
-                        <div className="flex flex-col items-center">
-                            {ben && <MemberCard {...ben} />}
-                        </div>
-                    </Reveal>
-                </div>
-
-                {/* Bottom connectors from each card */}
-                <div className="absolute bottom-0 left-0 right-0 flex justify-center pointer-events-none z-0">
-                    <div className="relative h-1 w-[85%] lg:w-[75%]">
-                        {/* Three vertical lines down from cards */}
-                        <motion.div
-                            variants={lineVertical}
-                            initial="hidden"
-                            animate="visible"
-                            transition={{ delay: 0.65 }}
-                            className={`absolute bottom-0 left-[16.666%] -translate-x-1/2 w-1 h-12 ${goldLineClass}`}
-                        />
-                        <motion.div
-                            variants={lineVertical}
-                            initial="hidden"
-                            animate="visible"
-                            transition={{ delay: 0.65 }}
-                            className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-12 ${goldLineClass}`}
-                        />
-                        <motion.div
-                            variants={lineVertical}
-                            initial="hidden"
-                            animate="visible"
-                            transition={{ delay: 0.65 }}
-                            className={`absolute bottom-0 left-[83.333%] -translate-x-1/2 w-1 h-12 ${goldLineClass}`}
-                        />
-
-                        {/* Horizontal bar connecting the three */}
-                        <motion.div
-                            variants={lineHorizontal}
-                            initial="hidden"
-                            animate="visible"
-                            transition={{ delay: 0.7 }}
-                            className={`absolute bottom-0 w-full h-1 ${goldLineHorizClass}`}
-                        />
-                    </div>
-                </div>
-
-                {/* Single vertical line from center down to Wakil */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-16 -mb-16 z-0">
-                    <motion.div
-                        variants={lineVertical}
-                        initial="hidden"
-                        animate="visible"
-                        transition={{ delay: 0.75 }}
-                        className={`w-full h-full ${goldLineClass}`}
-                    />
-                </div>
-            </div>
-
-            {/* LEVEL 3: WAKIL KETUA (3 positions) */}
-            <div className="relative w-full mb-16">
-                {/* Horizontal T-junction bar */}
-                <div className="absolute -top-16 left-0 right-0 flex justify-center pointer-events-none z-0">
-                    <div className="relative h-1 w-[90%] lg:w-[85%]">
-                        <motion.div
-                            variants={lineHorizontal}
                             initial="hidden"
                             animate="visible"
                             transition={{ delay: 0.5 }}
-                            className={`w-full h-full ${goldLineHorizClass}`}
+                            className={`absolute top-0 left-[16.666%] -translate-x-1/2 w-1 h-24 ${goldLineClass} -z-10`}
                         />
+                        <div className="absolute top-12 left-[16.666%] -translate-x-1/2 w-3 h-3 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,1)] z-10"></div>
 
-                        {/* Three vertical drops from T-bar to Wakil cards */}
+                        {/* Center drop (Sekretaris 2) */}
                         <motion.div
                             variants={lineVertical}
                             initial="hidden"
                             animate="visible"
-                            transition={{ delay: 0.7 }}
-                            className={`absolute top-0 left-[16.666%] -translate-x-1/2 w-1 h-8 ${goldLineClass}`}
+                            transition={{ delay: 0.55 }}
+                            className={`absolute top-0 left-1/2 -translate-x-1/2 w-1 h-24 ${goldLineClass} -z-10`}
                         />
+                        <div className="absolute top-12 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,1)] z-10"></div>
+
+                        {/* Right drop (Bendahara) */}
                         <motion.div
                             variants={lineVertical}
                             initial="hidden"
                             animate="visible"
-                            transition={{ delay: 0.7 }}
-                            className={`absolute top-0 left-1/2 -translate-x-1/2 w-1 h-8 ${goldLineClass}`}
+                            transition={{ delay: 0.6 }}
+                            className={`absolute top-0 left-[83.333%] -translate-x-1/2 w-1 h-24 ${goldLineClass} -z-10`}
                         />
-                        <motion.div
-                            variants={lineVertical}
-                            initial="hidden"
-                            animate="visible"
-                            transition={{ delay: 0.7 }}
-                            className={`absolute top-0 left-[83.333%] -translate-x-1/2 w-1 h-8 ${goldLineClass}`}
-                        />
+                        <div className="absolute top-12 left-[83.333%] -translate-x-1/2 w-3 h-3 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,1)] z-10"></div>
+                    </div>
+
+                    {/* Three Cards */}
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-[85%] lg:w-[75%] mx-auto relative pt-12 z-20">
+                        <Reveal delay={200}>
+                            <div className="flex flex-col items-center relative">
+                                {sek1 && <MemberCard {...sek1} />}
+                                {/* Vertical line down from Sek1 to Level 3 */}
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-24 -z-10">
+                                    <motion.div
+                                        variants={lineVertical}
+                                        initial="hidden"
+                                        animate="visible"
+                                        transition={{ delay: 0.75 }}
+                                        className={`w-full h-full ${goldLineClass}`}
+                                    />
+                                </div>
+                            </div>
+                        </Reveal>
+
+                        <Reveal delay={250}>
+                            <div className="flex flex-col items-center relative">
+                                {sek2 && <MemberCard {...sek2} />}
+
+                                {/* Vertical line down from center Sekretaris to next level */}
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-24 -z-10">
+                                    <motion.div
+                                        variants={lineVertical}
+                                        initial="hidden"
+                                        animate="visible"
+                                        transition={{ delay: 0.75 }}
+                                        className={`w-full h-full ${goldLineClass}`}
+                                    />
+                                </div>
+                            </div>
+                        </Reveal>
+
+                        <Reveal delay={300}>
+                            <div className="flex flex-col items-center relative">
+                                {ben && <MemberCard {...ben} />}
+                                {/* Vertical line down from Ben to Level 3 */}
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-24 -z-10">
+                                    <motion.div
+                                        variants={lineVertical}
+                                        initial="hidden"
+                                        animate="visible"
+                                        transition={{ delay: 0.75 }}
+                                        className={`w-full h-full ${goldLineClass}`}
+                                    />
+                                </div>
+                            </div>
+                        </Reveal>
                     </div>
                 </div>
 
-                {/* Three Wakil Ketua Cards */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-[90%] lg:w-[85%] mx-auto relative">
-                    <Reveal delay={350}>
+                {/* LEVEL 3: WAKIL KETUA (3 positions) */}
+                <div className="relative w-full mb-16">
+                    {/* Horizontal T-bar connecting Wakil Ketua */}
+                    <div className="hidden lg:block absolute -top-12 left-1/2 -translate-x-1/2 w-[90%] lg:w-[85%] h-1 z-0">
+                        <motion.div
+                            variants={lineHorizontal}
+                            initial="hidden"
+                            animate="visible"
+                            transition={{ delay: 0.9 }}
+                            className={`w-full h-full ${goldLineHorizClass}`}
+                        />
+
+                        {/* Vertical Risers to meet Sek/Ben (Upwards) */}
+                        <div className={`absolute bottom-0 left-[16.66%] -translate-x-1/2 w-1 h-12 ${goldLineClass}`}></div>
+                        <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-12 ${goldLineClass}`}></div>
+                        <div className={`absolute bottom-0 left-[83.33%] -translate-x-1/2 w-1 h-12 ${goldLineClass}`}></div>
+
+                        {/* Drops to cards with DOTS - Extended to go behind */}
+                        <motion.div variants={lineVertical} initial="hidden" animate="visible" transition={{ delay: 1.0 }} className={`absolute top-0 left-[16.66%] -translate-x-1/2 w-1 h-24 ${goldLineClass}`} />
+                        <div className="absolute top-12 left-[16.66%] -translate-x-1/2 w-3 h-3 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,1)] z-10"></div>
+
+                        <motion.div variants={lineVertical} initial="hidden" animate="visible" transition={{ delay: 1.0 }} className={`absolute top-0 left-1/2 -translate-x-1/2 w-1 h-24 ${goldLineClass}`} />
+                        <div className="absolute top-12 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,1)] z-10"></div>
+
+                        <motion.div variants={lineVertical} initial="hidden" animate="visible" transition={{ delay: 1.0 }} className={`absolute top-0 left-[83.33%] -translate-x-1/2 w-1 h-24 ${goldLineClass}`} />
+                        <div className="absolute top-12 left-[83.33%] -translate-x-1/2 w-3 h-3 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,1)] z-10"></div>
+                    </div>
+
+                    {/* Three Wakil Ketua Cards */}
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-[90%] lg:w-[85%] mx-auto relative z-20">
+                        <Reveal delay={350}>
+                            <div className="flex flex-col items-center relative">
+                                {wakil1 && <MemberCard {...wakil1} />}
+                                {/* Vertical line down from this Wakil */}
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-20 -z-10">
+                                    <motion.div
+                                        variants={lineVertical}
+                                        initial="hidden"
+                                        animate="visible"
+                                        transition={{ delay: 1.1 }}
+                                        className={`w-full h-full ${goldLineClass}`}
+                                    />
+                                </div>
+                            </div>
+                        </Reveal>
+
+                        <Reveal delay={400}>
+                            <div className="flex flex-col items-center relative">
+                                {wakil2 && <MemberCard {...wakil2} />}
+                                {/* Vertical line down from this Wakil */}
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-20 -z-10">
+                                    <motion.div
+                                        variants={lineVertical}
+                                        initial="hidden"
+                                        animate="visible"
+                                        transition={{ delay: 1.2 }}
+                                        className={`w-full h-full ${goldLineClass}`}
+                                    />
+                                </div>
+                            </div>
+                        </Reveal>
+
+                        <Reveal delay={450}>
+                            <div className="flex flex-col items-center relative">
+                                {wakil3 && <MemberCard {...wakil3} />}
+                                {/* Vertical line down from this Wakil */}
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-20 -z-10">
+                                    <motion.div
+                                        variants={lineVertical}
+                                        initial="hidden"
+                                        animate="visible"
+                                        transition={{ delay: 1.3 }}
+                                        className={`w-full h-full ${goldLineClass}`}
+                                    />
+                                </div>
+                            </div>
+                        </Reveal>
+                    </div>
+                </div>
+
+                {/* LEVEL 4: DIRECTORS & MANAGER */}
+                <div className="relative w-full mb-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-[90%] lg:w-[85%] mx-auto">
+                        {/* Community Director Column */}
                         <div className="flex flex-col items-center relative">
-                            {wakil1 && <MemberCard {...wakil1} />}
-                            {/* Vertical line down from this Wakil */}
-                            <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-20 z-0">
+                            {/* Vertical line from Wakil 1 */}
+                            <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-1 h-16 -z-10">
+                                <motion.div
+                                    variants={lineVertical}
+                                    initial="hidden"
+                                    animate="visible"
+                                    transition={{ delay: 0.9 }}
+                                    className={`w-full h-full ${goldLineClass}`}
+                                />
+                            </div>
+
+                            <Reveal delay={600}>
+                                {cd && <MemberCard {...cd} />}
+                            </Reveal>
+                        </div>
+
+                        {/* Internal Director Column */}
+                        <div className="flex flex-col items-center relative">
+                            {/* Vertical line from Wakil 2 */}
+                            <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-1 h-16 -z-10">
+                                <motion.div
+                                    variants={lineVertical}
+                                    initial="hidden"
+                                    animate="visible"
+                                    transition={{ delay: 1.0 }}
+                                    className={`w-full h-full ${goldLineClass}`}
+                                />
+                            </div>
+
+                            <Reveal delay={700}>
+                                {id && <MemberCard {...id} />}
+                            </Reveal>
+                        </div>
+
+                        {/* Manager Column */}
+                        <div className="flex flex-col items-center relative">
+                            {/* Vertical line from Wakil 3 */}
+                            <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-1 h-16 -z-10">
                                 <motion.div
                                     variants={lineVertical}
                                     initial="hidden"
@@ -301,30 +375,22 @@ const BPITreeLayout = () => {
                                     className={`w-full h-full ${goldLineClass}`}
                                 />
                             </div>
-                        </div>
-                    </Reveal>
 
-                    <Reveal delay={400}>
-                        <div className="flex flex-col items-center relative">
-                            {wakil2 && <MemberCard {...wakil2} />}
-                            {/* Vertical line down from this Wakil */}
-                            <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-20 z-0">
-                                <motion.div
-                                    variants={lineVertical}
-                                    initial="hidden"
-                                    animate="visible"
-                                    transition={{ delay: 1.2 }}
-                                    className={`w-full h-full ${goldLineClass}`}
-                                />
-                            </div>
+                            <Reveal delay={800}>
+                                <MemberCard {...manager} />
+                            </Reveal>
                         </div>
-                    </Reveal>
+                    </div>
+                </div>
 
-                    <Reveal delay={450}>
+                {/* LEVEL 5: SUB-DIVISIONS */}
+                <div className="relative w-full">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 w-[90%] lg:w-[85%] mx-auto">
+
+                        {/* COMMUNITY BRANCH - Horizontal layout */}
                         <div className="flex flex-col items-center relative">
-                            {wakil3 && <MemberCard {...wakil3} />}
-                            {/* Vertical line down from this Wakil */}
-                            <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-20 z-0">
+                            {/* Vertical line down from CD */}
+                            <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-1 h-12 -z-10">
                                 <motion.div
                                     variants={lineVertical}
                                     initial="hidden"
@@ -333,228 +399,129 @@ const BPITreeLayout = () => {
                                     className={`w-full h-full ${goldLineClass}`}
                                 />
                             </div>
-                        </div>
-                    </Reveal>
-                </div>
-            </div>
 
-            {/* LEVEL 4: DIRECTORS & MANAGER */}
-            <div className="relative w-full mb-12">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-[90%] lg:w-[85%] mx-auto">
-                    {/* Community Director Column */}
-                    <div className="flex flex-col items-center relative">
-                        {/* Vertical line from Wakil 1 */}
-                        <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-1 h-16 z-0">
-                            <motion.div
-                                variants={lineVertical}
-                                initial="hidden"
-                                animate="visible"
-                                transition={{ delay: 0.9 }}
-                                className={`w-full h-full ${goldLineClass}`}
-                            />
-                        </div>
-
-                        <Reveal delay={600}>
-                            {cd && <MemberCard {...cd} />}
-                        </Reveal>
-                    </div>
-
-                    {/* Internal Director Column */}
-                    <div className="flex flex-col items-center relative">
-                        {/* Vertical line from Wakil 2 */}
-                        <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-1 h-16 z-0">
-                            <motion.div
-                                variants={lineVertical}
-                                initial="hidden"
-                                animate="visible"
-                                transition={{ delay: 1.0 }}
-                                className={`w-full h-full ${goldLineClass}`}
-                            />
-                        </div>
-
-                        <Reveal delay={700}>
-                            {id && <MemberCard {...id} />}
-                        </Reveal>
-                    </div>
-
-                    {/* Manager Column */}
-                    <div className="flex flex-col items-center relative">
-                        {/* Vertical line from Wakil 3 */}
-                        <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-1 h-16 z-0">
-                            <motion.div
-                                variants={lineVertical}
-                                initial="hidden"
-                                animate="visible"
-                                transition={{ delay: 1.1 }}
-                                className={`w-full h-full ${goldLineClass}`}
-                            />
-                        </div>
-
-                        <Reveal delay={800}>
-                            <MemberCard {...manager} />
-                        </Reveal>
-                    </div>
-                </div>
-            </div>
-
-            {/* LEVEL 5: SUB-DIVISIONS */}
-            <div className="relative w-full">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 w-[90%] lg:w-[85%] mx-auto">
-
-                    {/* COMMUNITY BRANCH - L-shaped with vertical then horizontal right */}
-                    <div className="flex flex-col items-center relative">
-                        {/* Vertical line down from CD */}
-                        <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-1 h-12 z-0">
-                            <motion.div
-                                variants={lineVertical}
-                                initial="hidden"
-                                animate="visible"
-                                transition={{ delay: 1.3 }}
-                                className={`w-full h-full ${goldLineClass}`}
-                            />
-                        </div>
-
-                        {/* Horizontal line to the right */}
-                        <div className="absolute top-0 left-1/2 w-[60%] h-1 z-0">
-                            <motion.div
-                                variants={lineHorizontal}
-                                initial="hidden"
-                                animate="visible"
-                                transition={{ delay: 1.4 }}
-                                className={`w-full h-full ${goldLineHorizClass}`}
-                            />
-                        </div>
-
-                        {/* Game divisions */}
-                        <div className="flex flex-col gap-2 items-start w-full pl-[50%]">
-                            {['MLBB', 'PUBGM', 'VALORANT', 'HOK', 'FE'].map((game, i) => (
-                                <motion.div
-                                    key={game}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: 1.5 + (i * 0.1) }}
-                                    className="flex items-center gap-2"
-                                >
-                                    <div className={`w-8 h-1 ${goldLineHorizClass}`}></div>
-                                    <div className="px-4 py-2 bg-yellow-500/10 border border-yellow-500/30 rounded-md text-xs font-bold text-yellow-200 tracking-wider shadow-[0_0_10px_rgba(234,179,8,0.2)] min-w-[120px] text-center">
-                                        {game}
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* INTERNAL BRANCH - L-shaped with vertical then horizontal right */}
-                    <div className="flex flex-col items-center relative">
-                        {/* Vertical line down from ID */}
-                        <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-1 h-12 z-0">
-                            <motion.div
-                                variants={lineVertical}
-                                initial="hidden"
-                                animate="visible"
-                                transition={{ delay: 1.3 }}
-                                className={`w-full h-full ${goldLineClass}`}
-                            />
-                        </div>
-
-                        {/* Horizontal line to the right */}
-                        <div className="absolute top-0 left-1/2 w-[60%] h-1 z-0">
-                            <motion.div
-                                variants={lineHorizontal}
-                                initial="hidden"
-                                animate="visible"
-                                transition={{ delay: 1.4 }}
-                                className={`w-full h-full ${goldLineHorizClass}`}
-                            />
-                        </div>
-
-                        {/* Department divisions */}
-                        <div className="flex flex-col gap-2 items-start w-full pl-[50%]">
-                            {['PR', 'CM', 'MF', 'HRD'].map((dept, i) => (
-                                <motion.div
-                                    key={dept}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: 1.5 + (i * 0.1) }}
-                                    className="flex items-center gap-2"
-                                >
-                                    <div className={`w-8 h-1 ${goldLineHorizClass}`}></div>
-                                    <div className="px-4 py-2 bg-yellow-500/10 border border-yellow-500/30 rounded-md text-xs font-bold text-yellow-200 tracking-wider shadow-[0_0_10px_rgba(234,179,8,0.2)] min-w-[120px] text-center">
-                                        {dept}
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* TALENT BRANCH - Horizontal T-junction */}
-                    <div className="flex flex-col items-center relative">
-                        {/* Vertical line down from Manager */}
-                        <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-1 h-12 z-0">
-                            <motion.div
-                                variants={lineVertical}
-                                initial="hidden"
-                                animate="visible"
-                                transition={{ delay: 1.3 }}
-                                className={`w-full h-full ${goldLineClass}`}
-                            />
-                        </div>
-
-                        {/* Horizontal T-bar */}
-                        <div className="absolute top-0 left-0 right-0 flex justify-center z-0">
-                            <div className="relative h-1 w-full">
-                                <motion.div
-                                    variants={lineHorizontal}
-                                    initial="hidden"
-                                    animate="visible"
-                                    transition={{ delay: 1.4 }}
-                                    className={`w-full h-full ${goldLineHorizClass}`}
-                                />
-
-                                {/* Three vertical drops */}
-                                <motion.div
-                                    variants={lineVertical}
-                                    initial="hidden"
-                                    animate="visible"
-                                    transition={{ delay: 1.5 }}
-                                    className={`absolute top-0 left-[16.666%] -translate-x-1/2 w-1 h-8 ${goldLineClass}`}
-                                />
-                                <motion.div
-                                    variants={lineVertical}
-                                    initial="hidden"
-                                    animate="visible"
-                                    transition={{ delay: 1.5 }}
-                                    className={`absolute top-0 left-1/2 -translate-x-1/2 w-1 h-8 ${goldLineClass}`}
-                                />
-                                <motion.div
-                                    variants={lineVertical}
-                                    initial="hidden"
-                                    animate="visible"
-                                    transition={{ delay: 1.5 }}
-                                    className={`absolute top-0 left-[83.333%] -translate-x-1/2 w-1 h-8 ${goldLineClass}`}
-                                />
+                            {/* Game divisions - Horizontal */}
+                            <div className="flex flex-wrap justify-center gap-3 w-full pt-2">
+                                {['MLBB', 'PUBGM', 'VALORANT', 'HOK', 'FE'].map((game, i) => (
+                                    <motion.div
+                                        key={game}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 1.5 + (i * 0.1) }}
+                                    >
+                                        <div
+                                            onClick={() => setActiveTab(game)}
+                                            className="px-6 py-3 bg-gradient-to-br from-yellow-500/20 via-amber-500/15 to-yellow-600/10 border-2 border-yellow-500/40 rounded-lg text-sm font-black text-yellow-100 tracking-widest shadow-[0_0_20px_rgba(234,179,8,0.4),inset_0_1px_1px_rgba(255,255,255,0.1)] min-w-[120px] text-center hover:scale-105 hover:shadow-[0_0_30px_rgba(234,179,8,0.6)] hover:border-yellow-400/60 transition-all duration-300 cursor-pointer backdrop-blur-sm"
+                                        >
+                                            {game}
+                                        </div>
+                                    </motion.div>
+                                ))}
                             </div>
                         </div>
 
-                        {/* Talent divisions */}
-                        <div className="flex justify-between w-full gap-2 pt-10">
-                            {['ATLET', 'CASTER', 'BA'].map((talent, i) => (
+                        {/* INTERNAL BRANCH - Horizontal layout */}
+                        <div className="flex flex-col items-center relative">
+                            {/* Vertical line down from ID */}
+                            <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-1 h-12 -z-10">
                                 <motion.div
-                                    key={talent}
-                                    initial={{ opacity: 0, scale: 0 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ delay: 1.6 + (i * 0.1) }}
-                                    className="px-4 py-2 bg-yellow-500/10 border border-yellow-500/30 rounded-md text-xs font-bold text-yellow-200 tracking-wider shadow-[0_0_10px_rgba(234,179,8,0.2)] text-center flex-1"
-                                >
-                                    {talent}
-                                </motion.div>
-                            ))}
+                                    variants={lineVertical}
+                                    initial="hidden"
+                                    animate="visible"
+                                    transition={{ delay: 1.3 }}
+                                    className={`w-full h-full ${goldLineClass}`}
+                                />
+                            </div>
+
+                            {/* Department divisions - Horizontal */}
+                            <div className="flex flex-wrap justify-center gap-3 w-full pt-2">
+                                {['PR', 'CM', 'MF', 'HRD'].map((dept, i) => (
+                                    <motion.div
+                                        key={dept}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 1.5 + (i * 0.1) }}
+                                    >
+                                        <div
+                                            onClick={() => setActiveTab(dept)}
+                                            className="px-6 py-3 bg-gradient-to-br from-yellow-500/20 via-amber-500/15 to-yellow-600/10 border-2 border-yellow-500/40 rounded-lg text-sm font-black text-yellow-100 tracking-widest shadow-[0_0_20px_rgba(234,179,8,0.4),inset_0_1px_1px_rgba(255,255,255,0.1)] min-w-[120px] text-center hover:scale-105 hover:shadow-[0_0_30px_rgba(234,179,8,0.6)] hover:border-yellow-400/60 transition-all duration-300 cursor-pointer backdrop-blur-sm"
+                                        >
+                                            {dept}
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
                         </div>
+
+                        {/* TALENT BRANCH - Horizontal T-junction */}
+                        <div className="flex flex-col items-center relative">
+                            {/* Vertical line down from Manager */}
+                            <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-1 h-12 -z-10">
+                                <motion.div
+                                    variants={lineVertical}
+                                    initial="hidden"
+                                    animate="visible"
+                                    transition={{ delay: 1.3 }}
+                                    className={`w-full h-full ${goldLineClass}`}
+                                />
+                            </div>
+
+                            {/* Horizontal T-bar */}
+                            <div className="absolute top-0 left-0 right-0 flex justify-center z-0">
+                                <div className="relative h-1 w-full">
+                                    <motion.div
+                                        variants={lineHorizontal}
+                                        initial="hidden"
+                                        animate="visible"
+                                        transition={{ delay: 1.4 }}
+                                        className={`w-full h-full ${goldLineHorizClass}`}
+                                    />
+
+                                    {/* Three vertical drops */}
+                                    <motion.div
+                                        variants={lineVertical}
+                                        initial="hidden"
+                                        animate="visible"
+                                        transition={{ delay: 1.5 }}
+                                        className={`absolute top-0 left-[16.666%] -translate-x-1/2 w-1 h-8 ${goldLineClass}`}
+                                    />
+                                    <motion.div
+                                        variants={lineVertical}
+                                        initial="hidden"
+                                        animate="visible"
+                                        transition={{ delay: 1.5 }}
+                                        className={`absolute top-0 left-1/2 -translate-x-1/2 w-1 h-8 ${goldLineClass}`}
+                                    />
+                                    <motion.div
+                                        variants={lineVertical}
+                                        initial="hidden"
+                                        animate="visible"
+                                        transition={{ delay: 1.5 }}
+                                        className={`absolute top-0 left-[83.333%] -translate-x-1/2 w-1 h-8 ${goldLineClass}`}
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Talent divisions */}
+                            <div className="flex justify-between w-full gap-4 pt-10">
+                                {['ATLET', 'CASTER', 'BA'].map((talent, i) => (
+                                    <motion.div
+                                        key={talent}
+                                        initial={{ opacity: 0, scale: 0 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        transition={{ delay: 1.6 + (i * 0.1) }}
+                                        className="px-6 py-3 bg-gradient-to-br from-yellow-500/20 via-amber-500/15 to-yellow-600/10 border-2 border-yellow-500/40 rounded-lg text-sm font-black text-yellow-100 tracking-widest shadow-[0_0_20px_rgba(234,179,8,0.4),inset_0_1px_1px_rgba(255,255,255,0.1)] text-center flex-1 hover:scale-105 hover:shadow-[0_0_30px_rgba(234,179,8,0.6)] hover:border-yellow-400/60 transition-all duration-300 cursor-pointer backdrop-blur-sm"
+                                    >
+                                        {talent}
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
+
                     </div>
-
                 </div>
-            </div>
 
+            </div>
         </div>
     );
 };
@@ -568,32 +535,27 @@ const Organization: React.FC = () => {
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
             <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
-            {/* Subtle grid */}
-            <div className="absolute inset-0 opacity-[0.02] pointer-events-none"
-                style={{
-                    backgroundImage: `
-        linear-gradient(rgba(255,215,0,1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,215,0,1) 1px, transparent 1px)
-      `,
-                    backgroundSize: '60px 60px'
-                }}
-            />
+
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <Reveal>
                     <div className="text-center mb-16 px-4 select-none">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-primary/20 to-amber-500/20 border border-primary/30 mx-auto">
-                            <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                            <span className="text-primary font-display text-xs font-bold tracking-[0.15em] uppercase">
-                                Pengurus
-                            </span>
-                        </div>
-                        <h3 className="text-3xl md:text-5xl font-display font-black">
-                            <span className="text-white">Struktur </span>
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-300 to-amber-400">
-                                <TextScramble text="Kepengurusan" />
-                            </span>
-                        </h3>
+                        <GlitchReveal>
+                            <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-primary/20 to-amber-500/20 border border-primary/30 mx-auto">
+                                <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                                <span className="text-primary font-display text-xs font-bold tracking-[0.15em] uppercase">
+                                    Pengurus
+                                </span>
+                            </div>
+                        </GlitchReveal>
+                        <GlitchReveal>
+                            <h3 className="text-3xl md:text-5xl font-display font-black">
+                                <span className="text-white">Struktur </span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-300 to-amber-400">
+                                    <TextScramble text="Kepengurusan" />
+                                </span>
+                            </h3>
+                        </GlitchReveal>
                     </div>
                 </Reveal>
 
@@ -626,7 +588,7 @@ const Organization: React.FC = () => {
                             transition={{ duration: 0.3 }}
                         >
                             {activeTab === 'BPI' ? (
-                                <BPITreeLayout />
+                                <BPITreeLayout setActiveTab={setActiveTab} />
                             ) : (
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
                                     {ORGANIZATION_DATA[activeTab].map((member, index) => (

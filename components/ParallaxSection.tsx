@@ -47,7 +47,7 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
                 style={{ top: '-20%', bottom: '-20%' }}
             >
                 {/* Background effects container */}
-                <div className="absolute inset-0 bg-black"></div>
+                {/* <div className="absolute inset-0 bg-black"></div> */}
                 {backgroundContent}
             </div>
 
