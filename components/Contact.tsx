@@ -11,7 +11,6 @@ const Contact: React.FC = () => {
       className="py-20 md:py-32"
       backgroundContent={
         <>
-          {/* Parallax glow orbs */}
           <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" style={{ animation: 'glowPulse 4s ease-in-out infinite' }}></div>
           <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-amber-500/5 rounded-full blur-[100px] pointer-events-none" style={{ animation: 'glowPulse 5s ease-in-out infinite 1.5s' }}></div>
         </>
@@ -20,7 +19,6 @@ const Contact: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
         <Reveal className="w-full">
           <div className="flex flex-col items-center">
-            {/* Badge */}
             <GlitchReveal>
               <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-primary/20 to-amber-500/20 border border-primary/30">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
@@ -30,7 +28,6 @@ const Contact: React.FC = () => {
               </div>
             </GlitchReveal>
 
-            {/* Title */}
             <GlitchReveal>
               <h3 className="text-3xl md:text-5xl font-sans font-black mb-6 leading-tight">
                 <span className="text-white">Punya Pertanyaan </span>
@@ -48,7 +45,6 @@ const Contact: React.FC = () => {
               Kami siap mendengar masukan Anda untuk perkembangan BEST UB
             </p>
 
-            {/* Button */}
             <div className="relative group">
               <a
                 href="https://www.instagram.com/brawijaya_esports/"
@@ -60,7 +56,6 @@ const Contact: React.FC = () => {
                 Kirim Pesan via Instagram
               </a>
 
-              {/* Tooltip */}
               <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-black/90 text-white px-4 py-2 rounded-lg text-sm font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none border border-primary/50">
                 Follow Instagram Kami
                 <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-black/90 rotate-45 border-r border-b border-primary/50"></div>

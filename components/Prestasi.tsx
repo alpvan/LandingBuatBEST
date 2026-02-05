@@ -15,13 +15,10 @@ const Prestasi: React.FC = () => {
             }
         };
 
-        // Initial calculation
         updateWidth();
 
-        // Add event listener
         window.addEventListener('resize', updateWidth);
 
-        // Cleanup
         return () => window.removeEventListener('resize', updateWidth);
     }, []);
 
@@ -39,7 +36,6 @@ const Prestasi: React.FC = () => {
             className="py-20 md:py-32"
             backgroundContent={
                 <>
-                    {/* Parallax glow */}
                     <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" style={{ animation: 'glowPulse 4s ease-in-out infinite 0.5s' }}></div>
                 </>
             }
@@ -48,7 +44,6 @@ const Prestasi: React.FC = () => {
                 <Reveal>
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
                         <div>
-                            {/* Badge */}
                             <GlitchReveal>
                                 <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-primary/20 to-amber-500/20 border border-primary/30">
                                     <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
@@ -69,7 +64,6 @@ const Prestasi: React.FC = () => {
                     </div>
                 </Reveal>
 
-                {/* Carousel */}
                 <div className="cursor-grab active:cursor-grabbing overflow-hidden">
                     <motion.div
                         ref={carouselRef}

@@ -1,4 +1,3 @@
-/* Base styles for Brawijaya Esport Landing Page */
 * {
   margin: 0;
   padding: 0;
@@ -19,7 +18,6 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Light Theme - Soft & Warm Design */
 .light-theme {
   --bg-primary: #faf8f5;
   --bg-secondary: #fff9f0;
@@ -59,7 +57,6 @@ body {
   background: transparent !important;
 }
 
-/* Navbar - Warm cream with subtle gold accent */
 .light-theme nav {
   background: rgba(255, 252, 245, 0.92) !important;
   border-color: rgba(184, 134, 11, 0.2) !important;
@@ -74,7 +71,6 @@ body {
   color: #1a202c !important;
 }
 
-/* Text colors - Softer dark tones */
 .light-theme .text-gray-300,
 .light-theme .text-gray-400,
 .light-theme .text-gray-500,
@@ -102,13 +98,11 @@ body {
   text-shadow: 0 1px 2px rgba(255, 215, 0, 0.1);
 }
 
-/* Primary text/brand color adjustments */
 .light-theme .text-primary {
   color: #d4a017 !important;
   filter: brightness(0.9);
 }
 
-/* Buttons and interactive elements */
 .light-theme button:not(.bg-primary):not([class*="gradient"]) {
   background: rgba(255, 252, 245, 0.8) !important;
   color: #2d3748 !important;
@@ -120,12 +114,10 @@ body {
   border-color: rgba(184, 134, 11, 0.5) !important;
 }
 
-/* Keep CTA buttons vibrant in light mode */
 .light-theme .bg-gradient-to-r {
   filter: brightness(0.95) saturate(1.1);
 }
 
-/* Links */
 .light-theme a {
   color: #b8860b;
 }
@@ -134,7 +126,6 @@ body {
   color: #d4a017;
 }
 
-/* Section backgrounds - Subtle variations */
 .light-theme section {
   background: transparent !important;
 }
@@ -143,7 +134,6 @@ body {
   background: rgba(255, 252, 245, 0.3) !important;
 }
 
-/* Scrollbar - Warm tones */
 .light-theme ::-webkit-scrollbar-track {
   background: #fef7ed;
 }
@@ -157,13 +147,11 @@ body {
   background: linear-gradient(180deg, #ffd700 0%, #b8860b 100%);
 }
 
-/* Background particles - Very subtle golden glow */
 .light-theme canvas {
   opacity: 0.15 !important;
   filter: sepia(20%) hue-rotate(5deg) brightness(1.1);
 }
 
-/* Card backgrounds - Warm cream cards */
 .light-theme .bg-black,
 .light-theme .bg-black\/50,
 .light-theme .bg-black\/80,
@@ -177,21 +165,18 @@ body {
   box-shadow: 0 4px 16px rgba(184, 134, 11, 0.08);
 }
 
-/* Backdrop blur elements */
 .light-theme .backdrop-blur-md,
 .light-theme .backdrop-blur-lg,
 .light-theme .backdrop-blur-xl {
   background: rgba(255, 252, 245, 0.85) !important;
 }
 
-/* Border colors */
 .light-theme .border-white\/10,
 .light-theme .border-white\/5,
 .light-theme .border-white\/20 {
   border-color: rgba(184, 134, 11, 0.15) !important;
 }
 
-/* Electric border cards - adjust for light mode */
 .light-theme .electric-card-container {
   --electric-border-color: #d4a017;
   --electric-light-color: oklch(from var(--electric-border-color) l c h);
@@ -199,17 +184,14 @@ body {
   --color-neutral-900: oklch(0.97 0.01 45);
 }
 
-/* Modal backgrounds */
 .light-theme .fixed.inset-0.bg-black {
   background: rgba(250, 248, 245, 0.85) !important;
 }
 
-/* Logo and brand elements - keep gold vibrant */
 .light-theme .drop-shadow-\[0_0_8px_rgba\(255\,215\,0\,0\.6\)\] {
   filter: drop-shadow(0 0 10px rgba(212, 160, 23, 0.7));
 }
 
-/* Footer - Warm gradient */
 .light-theme footer {
   background: linear-gradient(to top,
       #fff9f0 0%,
@@ -226,14 +208,12 @@ body {
   color: #d4a017;
 }
 
-/* Shadows - adjust for light mode */
 .light-theme .shadow-lg,
 .light-theme .shadow-xl,
 .light-theme .shadow-2xl {
   box-shadow: 0 10px 40px rgba(184, 134, 11, 0.12) !important;
 }
 
-/* Opacity adjustments */
 .light-theme .opacity-50 {
   opacity: 0.6 !important;
 }
@@ -242,25 +222,21 @@ body {
   opacity: 0.75 !important;
 }
 
-/* Hover effects - ensure visibility */
 .light-theme .hover\:bg-white\/10:hover,
 .light-theme .hover\:bg-white\/20:hover {
   background: rgba(212, 160, 23, 0.1) !important;
 }
 
-
 #root {
   min-height: 100vh;
 }
 
-/* GPU acceleration for animated elements */
 .will-change-transform {
   will-change: transform;
   transform: translateZ(0);
   backface-visibility: hidden;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -278,7 +254,6 @@ body {
   background: #ffd700;
 }
 
-/* Smooth scroll indicator animation */
 @keyframes scrollPulse {
 
   0%,
@@ -293,7 +268,6 @@ body {
   }
 }
 
-/* Parallax floating animation */
 @keyframes parallaxFloat {
 
   0%,
@@ -306,7 +280,6 @@ body {
   }
 }
 
-/* Glow pulse animation - optimized */
 @keyframes glowPulse {
 
   0%,
@@ -319,7 +292,6 @@ body {
   }
 }
 
-/* Section reveal animation */
 @keyframes sectionReveal {
   from {
     opacity: 0;
@@ -332,7 +304,6 @@ body {
   }
 }
 
-/* Sideways flip animation */
 @keyframes flipY {
   0% {
     transform: rotateY(0deg);
@@ -347,7 +318,6 @@ body {
   }
 }
 
-/* Stagger children animation */
 .stagger-children>* {
   opacity: 0;
   animation: sectionReveal 0.6s ease-out forwards;
@@ -377,7 +347,6 @@ body {
   animation-delay: 0.6s;
 }
 
-/* Parallax layer classes */
 .parallax-slow {
   will-change: transform;
   transition: transform 0.1s linear;
@@ -393,7 +362,6 @@ body {
   transition: transform 0.05s linear;
 }
 
-/* Scroll-triggered animations - Enhanced */
 .scroll-fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -420,7 +388,6 @@ body {
   transform: scale(1);
 }
 
-/* Auto-apply scroll animations to sections */
 section {
   opacity: 0;
   transform: translateY(40px);
@@ -433,13 +400,11 @@ section.is-visible {
   transform: translateY(0);
 }
 
-/* Smooth parallax effect */
 [data-parallax] {
   will-change: transform;
   transition: transform 0.1s linear;
 }
 
-/* Hover lift effect */
 .hover-lift {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -449,7 +414,6 @@ section.is-visible {
   box-shadow: 0 20px 40px rgba(255, 215, 0, 0.15);
 }
 
-/* Text gradient animation */
 @keyframes gradientShift {
 
   0%,
@@ -467,7 +431,6 @@ section.is-visible {
   animation: gradientShift 3s ease infinite;
 }
 
-/* Modal Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -515,12 +478,10 @@ section.is-visible {
   animation: fadeInUp 0.5s ease-out forwards;
 }
 
-/* Performance optimizations */
 nav {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
 }
 
-/* Reduce animation on scroll for better performance */
 @media (prefers-reduced-motion: reduce) {
 
   *,
@@ -532,7 +493,6 @@ nav {
   }
 }
 
-/* Marquee Animation */
 @keyframes marquee {
   0% {
     transform: translateX(0);
@@ -543,10 +503,6 @@ nav {
   }
 }
 
-/* ========================================= */
-/* ELECTRIC BORDER TEMPLATE STYLES           */
-/* ========================================= */
-
 :root {
   --electric-border-color: #dd8448;
   --electric-light-color: oklch(from var(--electric-border-color) l c h);
@@ -554,7 +510,6 @@ nav {
   --color-neutral-900: oklch(0.185 0 0);
 }
 
-/* Renamed to avoid conflicts & match React component */
 .electric-card-container {
   padding: 2px;
   border-radius: 24px;
@@ -594,7 +549,6 @@ nav {
   border: 2px solid var(--electric-border-color);
   margin-top: -4px;
   margin-left: -4px;
-  /* filter: url(#turbulent-displace);  <-- Moved to hover state for performance */
   will-change: transform, filter;
   position: absolute;
   top: 0;
@@ -602,7 +556,6 @@ nav {
   pointer-events: none;
 }
 
-/* Apply heavy distortion only on hover to prevent lag */
 .electric-card-container:hover .main-card {
   filter: url(#turbulent-displace);
 }
@@ -684,7 +637,6 @@ nav {
   pointer-events: none;
 }
 
-/* Ensure content sits above everything */
 .electric-content {
   position: relative;
   z-index: 10;
@@ -692,7 +644,6 @@ nav {
   width: 100%;
 }
 
-/* Glitch Animations */
 @keyframes glitch-1 {
   0% {
     clip-path: inset(20% 0 80% 0);

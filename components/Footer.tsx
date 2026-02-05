@@ -21,7 +21,6 @@ const Footer: React.FC = () => {
     <footer className="relative z-20 bg-black border-t border-primary/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* Column 1: Brand */}
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <Logo className="h-12 w-auto" />
@@ -35,7 +34,6 @@ const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* Column 2: Quick Links */}
           <div>
             <h4 className="font-sans font-bold text-white text-sm uppercase tracking-wider mb-4">Link Kembali</h4>
             <ul className="space-y-2">
@@ -52,7 +50,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Social Media */}
           <div>
             <h4 className="font-sans font-bold text-white text-sm uppercase tracking-wider mb-4">Media Sosial</h4>
             <ul className="space-y-3">
@@ -78,7 +75,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 4: Map */}
           <div>
             <h4 className="font-sans font-bold text-white text-sm uppercase tracking-wider mb-4">Lokasi</h4>
             <div className="relative w-full h-32 rounded-lg overflow-hidden border border-white/10 group">
@@ -96,7 +92,6 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 text-sm">

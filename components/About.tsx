@@ -20,12 +20,9 @@ const About: React.FC = () => {
       className="py-20 md:py-32"
       backgroundContent={
         <>
-          {/* Background - smooth transition from Hero */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black to-black pointer-events-none"></div>
 
-          {/* Subtle grid pattern removed as per previous unification task, ensuring it's clean */}
 
-          {/* Parallax glow orbs */}
           <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" style={{ animation: 'glowPulse 4s ease-in-out infinite' }}></div>
           <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-amber-500/5 rounded-full blur-[100px] pointer-events-none" style={{ animation: 'glowPulse 5s ease-in-out infinite 1s' }}></div>
         </>
@@ -33,11 +30,10 @@ const About: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-        {/* Left Column: Visi & Misi */}
+
         <Reveal className="w-full max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            {/* Small Badge */}
-            <div className="inline-flex items-center gap-2 mb-4 justify-center">
+            <div className="text-center mb-12">
               <GlitchReveal>
                 <div className="flex items-center gap-2">
                   <span className="w-8 h-[2px] bg-primary"></span>
@@ -47,7 +43,6 @@ const About: React.FC = () => {
               </GlitchReveal>
             </div>
 
-            {/* Visi Section */}
             <div className="mb-12">
               <GlitchReveal>
                 <h3 className="text-4xl md:text-5xl font-sans font-black text-white mb-6">
@@ -60,7 +55,6 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          {/* Misi Section */}
           <div className="grid md:grid-cols-3 gap-8">
             <div className="flex flex-col items-center text-center gap-4 group bg-white/5 p-6 rounded-2xl hover:bg-white/10 transition-colors border border-white/5 hover:border-primary/20">
               <div className="w-12 h-12 rounded-full border border-primary/50 flex items-center justify-center group-hover:scale-110 transition-transform bg-primary/10">
@@ -89,21 +83,16 @@ const About: React.FC = () => {
           </div>
         </Reveal>
 
-        {/* Separator */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-20"></div>
 
-        {/* Bottom Section: Filosofi Logo & Stats */}
+
         <Reveal direction="up" delay={400}>
           <div className="flex flex-col gap-20">
 
-            {/* Detailed Filosofi Logo Section - Border Removed */}
             <div className="relative">
               <div className="relative rounded-[2.5rem] overflow-hidden p-8 md:p-12 h-full">
-                {/* Background Elements */}
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
                 <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-amber-500/5 rounded-full blur-[100px] pointer-events-none translate-y-1/2 -translate-x-1/2"></div>
 
-                {/* Title Section */}
                 <div className="text-center mb-16 relative z-20">
                   <GlitchReveal>
                     <h4 className="text-5xl md:text-6xl font-sans font-black text-white mb-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
@@ -113,7 +102,6 @@ const About: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
-                  {/* Left: Main Logo Display */}
                   <div className="flex justify-center items-center">
                     <div className="relative group w-48 h-48 md:w-64 md:h-64 flex items-center justify-center">
                       <div className="absolute inset-0 bg-primary/20 rounded-full blur-[60px] animate-pulse"></div>
@@ -124,7 +112,6 @@ const About: React.FC = () => {
                   <div className="space-y-10">
 
                     <div className="grid grid-cols-1 gap-8">
-                      {/* 1. Perisai */}
                       <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center group bg-white/5 p-4 rounded-2xl md:bg-transparent md:p-0">
                         <div className="flex-shrink-0 w-full sm:w-32 h-48 sm:h-32 rounded-xl overflow-hidden border border-white/10 group-hover:border-primary/50 transition-all duration-300 relative">
                           <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
@@ -143,7 +130,6 @@ const About: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* 2. Huruf BEST */}
                       <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center group bg-white/5 p-4 rounded-2xl md:bg-transparent md:p-0">
                         <div className="flex-shrink-0 w-full sm:w-32 h-48 sm:h-32 rounded-xl overflow-hidden border border-white/10 group-hover:border-primary/50 transition-all duration-300 relative">
                           <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
@@ -162,7 +148,6 @@ const About: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* 3. Warna Emas */}
                       <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center group bg-white/5 p-4 rounded-2xl md:bg-transparent md:p-0">
                         <div className="flex-shrink-0 w-full sm:w-32 h-48 sm:h-32 rounded-xl overflow-hidden border border-white/10 group-hover:border-primary/50 transition-all duration-300 relative">
                           <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
@@ -181,7 +166,6 @@ const About: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* 4. Bintang */}
                       <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center group bg-white/5 p-4 rounded-2xl md:bg-transparent md:p-0">
                         <div className="flex-shrink-0 w-full sm:w-32 h-48 sm:h-32 rounded-xl overflow-hidden border border-white/10 group-hover:border-primary/50 transition-all duration-300 relative">
                           <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
