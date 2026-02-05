@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sparkles, ShoppingBag } from 'lucide-react';
 import Logo from './Logo';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -72,10 +73,10 @@ const Navbar: React.FC = () => {
               <div className="absolute inset-0 bg-primary/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-150"></div>
             </div>
             <div className="ml-3 flex flex-col">
-              <span className="font-display font-black text-base tracking-wide leading-tight">
+              <span className="font-sans font-black text-base tracking-wide leading-tight">
                 <span className="text-primary drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]">BRAWIJAYA</span>
               </span>
-              <span className="font-display font-medium text-xs tracking-[0.3em] text-gray-400">ESPORT</span>
+              <span className="font-sans font-medium text-xs tracking-[0.3em] text-gray-400">ESPORT</span>
             </div>
           </div>
 
@@ -88,7 +89,7 @@ const Navbar: React.FC = () => {
                   href={link.href}
                   target={link.external ? '_blank' : undefined}
                   rel={link.external ? 'noopener noreferrer' : undefined}
-                  className={`relative px-4 py-2 rounded-lg font-display text-xs font-medium uppercase tracking-wider transition-all duration-300 ${activeSection === link.id
+                  className={`relative px-4 py-2 rounded-lg font-sans text-xs font-medium uppercase tracking-wider transition-all duration-300 ${activeSection === link.id
                     ? 'text-black bg-primary shadow-[0_0_20px_rgba(255,215,0,0.4)]'
                     : 'text-gray-300 hover:text-white hover:bg-white/10'
                     }`}
@@ -97,12 +98,16 @@ const Navbar: React.FC = () => {
                 </a>
               ))}
             </div>
+            {/* Theme Toggle */}
+            <div className="ml-3">
+              <ThemeToggle />
+            </div>
             {/* CTA Button */}
             <a
               href="https://www.instagram.com/brawijayaesports.store/"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-4 px-5 py-2.5 rounded-xl bg-gradient-to-r from-primary to-yellow-400 text-black font-display text-xs font-bold uppercase tracking-wider 
+              className="ml-3 px-5 py-2.5 rounded-xl bg-gradient-to-r from-primary to-yellow-400 text-black font-sans text-xs font-bold uppercase tracking-wider 
                          hover:shadow-[0_0_30px_rgba(255,215,0,0.5)] hover:scale-105 
                          transition-all duration-300 flex items-center gap-2"
             >
@@ -138,7 +143,7 @@ const Navbar: React.FC = () => {
                 target={link.external ? '_blank' : undefined}
                 rel={link.external ? 'noopener noreferrer' : undefined}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`flex items-center px-4 py-3 rounded-xl font-display text-sm font-medium transition-all duration-300 ${activeSection === link.id
+                className={`flex items-center px-4 py-3 rounded-xl font-sans text-sm font-medium transition-all duration-300 ${activeSection === link.id
                   ? 'bg-primary text-black'
                   : 'text-gray-300 hover:bg-white/10 hover:text-white'
                   }`}
@@ -148,16 +153,19 @@ const Navbar: React.FC = () => {
               </a>
             ))}
           </div>
-          <a
-            href="https://www.instagram.com/brawijayaesports.store/"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="mt-4 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-primary to-yellow-400 text-black font-display text-sm font-bold transition-all duration-300"
-          >
-            <ShoppingBag className="w-4 h-4" />
-            Merchandise
-          </a>
+          <div className="mt-4 flex items-center gap-3">
+            <ThemeToggle />
+            <a
+              href="https://www.instagram.com/brawijayaesports.store/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-primary to-yellow-400 text-black font-sans text-sm font-bold transition-all duration-300"
+            >
+              <ShoppingBag className="w-4 h-4" />
+              Merchandise
+            </a>
+          </div>
         </div>
       </div>
     </nav>

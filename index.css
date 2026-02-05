@@ -16,7 +16,238 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+/* Light Theme - Soft & Warm Design */
+.light-theme {
+  --bg-primary: #faf8f5;
+  --bg-secondary: #fff9f0;
+  --text-primary: #2d3748;
+  --text-secondary: #4a5568;
+  --border-color: rgba(184, 134, 11, 0.15);
+  --card-bg: rgba(255, 252, 245, 0.95);
+  --navbar-bg: rgba(255, 252, 245, 0.85);
+  --footer-bg: #fff9f0;
+}
+
+.light-theme body {
+  background: linear-gradient(135deg,
+      #faf8f5 0%,
+      #fff9f0 25%,
+      #fef7ed 50%,
+      #fff9f0 75%,
+      #faf8f5 100%) !important;
+  background-size: 400% 400%;
+  animation: subtleGradient 15s ease infinite;
+  color: #2d3748 !important;
+}
+
+@keyframes subtleGradient {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.light-theme #root {
+  background: transparent !important;
+}
+
+/* Navbar - Warm cream with subtle gold accent */
+.light-theme nav {
+  background: rgba(255, 252, 245, 0.92) !important;
+  border-color: rgba(184, 134, 11, 0.2) !important;
+  box-shadow: 0 4px 24px rgba(184, 134, 11, 0.08) !important;
+}
+
+.light-theme nav a {
+  color: #2d3748 !important;
+}
+
+.light-theme nav a:hover {
+  color: #1a202c !important;
+}
+
+/* Text colors - Softer dark tones */
+.light-theme .text-gray-300,
+.light-theme .text-gray-400,
+.light-theme .text-gray-500,
+.light-theme .text-gray-600 {
+  color: #5a6572 !important;
+}
+
+.light-theme .text-white {
+  color: #2d3748 !important;
+}
+
+.light-theme p,
+.light-theme span,
+.light-theme div {
+  color: inherit;
+}
+
+.light-theme h1,
+.light-theme h2,
+.light-theme h3,
+.light-theme h4,
+.light-theme h5,
+.light-theme h6 {
+  color: #1a202c !important;
+  text-shadow: 0 1px 2px rgba(255, 215, 0, 0.1);
+}
+
+/* Primary text/brand color adjustments */
+.light-theme .text-primary {
+  color: #d4a017 !important;
+  filter: brightness(0.9);
+}
+
+/* Buttons and interactive elements */
+.light-theme button:not(.bg-primary):not([class*="gradient"]) {
+  background: rgba(255, 252, 245, 0.8) !important;
+  color: #2d3748 !important;
+  border-color: rgba(184, 134, 11, 0.3) !important;
+}
+
+.light-theme button:hover:not(.bg-primary):not([class*="gradient"]) {
+  background: rgba(254, 247, 237, 0.95) !important;
+  border-color: rgba(184, 134, 11, 0.5) !important;
+}
+
+/* Keep CTA buttons vibrant in light mode */
+.light-theme .bg-gradient-to-r {
+  filter: brightness(0.95) saturate(1.1);
+}
+
+/* Links */
+.light-theme a {
+  color: #b8860b;
+}
+
+.light-theme a:hover {
+  color: #d4a017;
+}
+
+/* Section backgrounds - Subtle variations */
+.light-theme section {
+  background: transparent !important;
+}
+
+.light-theme section:nth-child(even) {
+  background: rgba(255, 252, 245, 0.3) !important;
+}
+
+/* Scrollbar - Warm tones */
+.light-theme ::-webkit-scrollbar-track {
+  background: #fef7ed;
+}
+
+.light-theme ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f4c430 0%, #d4a017 100%);
+  border-radius: 4px;
+}
+
+.light-theme ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffd700 0%, #b8860b 100%);
+}
+
+/* Background particles - Very subtle golden glow */
+.light-theme canvas {
+  opacity: 0.15 !important;
+  filter: sepia(20%) hue-rotate(5deg) brightness(1.1);
+}
+
+/* Card backgrounds - Warm cream cards */
+.light-theme .bg-black,
+.light-theme .bg-black\/50,
+.light-theme .bg-black\/80,
+.light-theme .bg-black\/90,
+.light-theme .bg-gray-900,
+.light-theme .bg-gray-800 {
+  background: linear-gradient(135deg,
+      rgba(255, 252, 245, 0.95) 0%,
+      rgba(254, 247, 237, 0.95) 100%) !important;
+  border: 1px solid rgba(184, 134, 11, 0.2);
+  box-shadow: 0 4px 16px rgba(184, 134, 11, 0.08);
+}
+
+/* Backdrop blur elements */
+.light-theme .backdrop-blur-md,
+.light-theme .backdrop-blur-lg,
+.light-theme .backdrop-blur-xl {
+  background: rgba(255, 252, 245, 0.85) !important;
+}
+
+/* Border colors */
+.light-theme .border-white\/10,
+.light-theme .border-white\/5,
+.light-theme .border-white\/20 {
+  border-color: rgba(184, 134, 11, 0.15) !important;
+}
+
+/* Electric border cards - adjust for light mode */
+.light-theme .electric-card-container {
+  --electric-border-color: #d4a017;
+  --electric-light-color: oklch(from var(--electric-border-color) l c h);
+  --gradient-color: oklch(from var(--electric-border-color) 0.4 calc(c / 1.5) h / 0.5);
+  --color-neutral-900: oklch(0.97 0.01 45);
+}
+
+/* Modal backgrounds */
+.light-theme .fixed.inset-0.bg-black {
+  background: rgba(250, 248, 245, 0.85) !important;
+}
+
+/* Logo and brand elements - keep gold vibrant */
+.light-theme .drop-shadow-\[0_0_8px_rgba\(255\,215\,0\,0\.6\)\] {
+  filter: drop-shadow(0 0 10px rgba(212, 160, 23, 0.7));
+}
+
+/* Footer - Warm gradient */
+.light-theme footer {
+  background: linear-gradient(to top,
+      #fff9f0 0%,
+      #faf8f5 100%) !important;
+  color: #2d3748 !important;
+  border-top: 1px solid rgba(184, 134, 11, 0.15);
+}
+
+.light-theme footer a {
+  color: #b8860b;
+}
+
+.light-theme footer a:hover {
+  color: #d4a017;
+}
+
+/* Shadows - adjust for light mode */
+.light-theme .shadow-lg,
+.light-theme .shadow-xl,
+.light-theme .shadow-2xl {
+  box-shadow: 0 10px 40px rgba(184, 134, 11, 0.12) !important;
+}
+
+/* Opacity adjustments */
+.light-theme .opacity-50 {
+  opacity: 0.6 !important;
+}
+
+.light-theme .opacity-70 {
+  opacity: 0.75 !important;
+}
+
+/* Hover effects - ensure visibility */
+.light-theme .hover\:bg-white\/10:hover,
+.light-theme .hover\:bg-white\/20:hover {
+  background: rgba(212, 160, 23, 0.1) !important;
+}
+
 
 #root {
   min-height: 100vh;
@@ -162,11 +393,13 @@ body {
   transition: transform 0.05s linear;
 }
 
-/* Scroll-triggered animations */
+/* Scroll-triggered animations - Enhanced */
 .scroll-fade-in {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .scroll-fade-in.is-visible {
@@ -176,13 +409,34 @@ body {
 
 .scroll-scale-in {
   opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transform: scale(0.95);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .scroll-scale-in.is-visible {
   opacity: 1;
   transform: scale(1);
+}
+
+/* Auto-apply scroll animations to sections */
+section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth parallax effect */
+[data-parallax] {
+  will-change: transform;
+  transition: transform 0.1s linear;
 }
 
 /* Hover lift effect */

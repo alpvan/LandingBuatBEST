@@ -90,7 +90,7 @@ const Hero: React.FC = () => {
               {/* Badge */}
               <GlitchReveal delay={500}>
                 <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-gradient-to-r from-primary/20 to-amber-500/20 border border-primary/30 backdrop-blur-sm">
-                  <span className="text-primary font-display text-xs font-bold tracking-[0.15em] uppercase">
+                  <span className="text-primary font-sans text-xs font-bold tracking-[0.15em] uppercase">
                     Brawijaya Esport
                   </span>
                 </div>
@@ -98,7 +98,7 @@ const Hero: React.FC = () => {
 
               {/* Main Heading */}
               {/* Main Heading */}
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-black tracking-tight mb-8 leading-none">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-sans font-black tracking-tight mb-8 leading-none">
                 <GlitchReveal delay={800}>
                   <div className="flex flex-col gap-2">
                     <GlitchReveal delay={800}>
@@ -126,7 +126,7 @@ const Hero: React.FC = () => {
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
                 <a
                   href="#about"
-                  className="group relative px-8 py-4 bg-gradient-to-r from-primary to-yellow-400 text-black font-display font-bold text-base rounded-xl
+                  className="group relative px-8 py-4 bg-gradient-to-r from-primary to-yellow-400 text-black font-sans font-bold text-base rounded-xl
                            hover:shadow-[0_0_40px_rgba(255,215,0,0.4)] hover:scale-105
                            transition-all duration-300 text-center flex items-center justify-center gap-2"
                 >
@@ -135,7 +135,7 @@ const Hero: React.FC = () => {
                 </a>
                 <a
                   href="#events"
-                  className="px-8 py-4 bg-white/5 border border-white/20 text-white font-display font-bold text-base rounded-xl
+                  className="px-8 py-4 bg-white/5 border border-white/20 text-white font-sans font-bold text-base rounded-xl
                            hover:bg-white/10 hover:border-primary/50 hover:text-primary
                            transition-all duration-300 text-center flex items-center justify-center gap-2"
                 >
@@ -151,7 +151,7 @@ const Hero: React.FC = () => {
                     <div key={index} className="text-center sm:text-left">
                       <div className="flex items-center justify-center sm:justify-start gap-2 mb-1">
                         <stat.icon className="w-4 h-4 text-primary" />
-                        <span className="text-2xl md:text-3xl font-display font-black text-white">
+                        <span className="text-2xl md:text-3xl font-sans font-black text-white">
                           <CountUp end={stat.end} suffix={stat.suffix} />
                         </span>
                       </div>
@@ -234,7 +234,7 @@ const Hero: React.FC = () => {
         <div className="flex items-center relative">
           {/* Label */}
           <div className="hidden md:flex items-center h-full px-8 bg-black/50 backdrop-blur-xl border-r border-white/10 z-10 absolute left-0 top-0 bottom-0">
-            <span className="text-xs font-display font-bold text-gray-500 uppercase tracking-widest">didukung oleh</span>
+            <span className="text-xs font-sans font-bold text-gray-500 uppercase tracking-widest">didukung oleh</span>
           </div>
 
           {/* Scrolling Logos */}
@@ -252,7 +252,7 @@ const Hero: React.FC = () => {
                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${i % 3 === 0 ? 'bg-red-500/20' : i % 3 === 1 ? 'bg-blue-500/20' : 'bg-green-500/20'}`}>
                   <div className={`w-4 h-4 rounded-sm ${i % 3 === 0 ? 'bg-red-500' : i % 3 === 1 ? 'bg-blue-500' : 'bg-green-500'}`}></div>
                 </div>
-                <span className="text-sm font-bold font-display tracking-wider text-gray-300 whitespace-nowrap">
+                <span className="text-sm font-bold font-sans tracking-wider text-gray-300 whitespace-nowrap">
                   {sponsor}
                 </span>
               </div>
@@ -269,7 +269,7 @@ const Hero: React.FC = () => {
                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${i % 3 === 0 ? 'bg-red-500/20' : i % 3 === 1 ? 'bg-blue-500/20' : 'bg-green-500/20'}`}>
                   <div className={`w-4 h-4 rounded-sm ${i % 3 === 0 ? 'bg-red-500' : i % 3 === 1 ? 'bg-blue-500' : 'bg-green-500'}`}></div>
                 </div>
-                <span className="text-sm font-bold font-display tracking-wider text-gray-300 whitespace-nowrap">
+                <span className="text-sm font-bold font-sans tracking-wider text-gray-300 whitespace-nowrap">
                   {sponsor}
                 </span>
               </div>

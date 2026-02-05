@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
             <div className="flex items-center gap-3">
               <Logo className="h-12 w-auto" />
               <div>
-                <h3 className="font-display font-bold text-white text-lg">BRAWIJAYA ESPORT</h3>
+                <h3 className="font-sans font-bold text-white text-lg">BRAWIJAYA ESPORT</h3>
                 <p className="text-gray-500 text-xs">UKM Universitas Brawijaya</p>
               </div>
             </div>
@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
 
           {/* Column 2: Quick Links */}
           <div>
-            <h4 className="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Link Kembali</h4>
+            <h4 className="font-sans font-bold text-white text-sm uppercase tracking-wider mb-4">Link Kembali</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
 
           {/* Column 3: Social Media */}
           <div>
-            <h4 className="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Media Sosial</h4>
+            <h4 className="font-sans font-bold text-white text-sm uppercase tracking-wider mb-4">Media Sosial</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-gray-400 text-sm">
                 <Instagram className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary" />
@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
 
           {/* Column 4: Map */}
           <div>
-            <h4 className="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Lokasi</h4>
+            <h4 className="font-sans font-bold text-white text-sm uppercase tracking-wider mb-4">Lokasi</h4>
             <div className="relative w-full h-32 rounded-lg overflow-hidden border border-white/10 group">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.4192876864646!2d112.61307847500944!3d-7.952093392061695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7882731cc6e26b%3A0x45bf172ae6ecc800!2sUniversitas%20Brawijaya!5e0!3m2!1sen!2sid!4v1703849562345!5m2!1sen!2sid"

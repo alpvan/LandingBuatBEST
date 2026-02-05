@@ -127,7 +127,7 @@ const GameDivisions: React.FC = () => {
                                 />
                             </div>
 
-                            <h4 className="relative text-xl font-display font-bold mb-3 text-white group-hover:text-primary transition-colors">
+                            <h4 className="relative text-xl font-sans font-bold mb-3 text-white group-hover:text-primary transition-colors">
                                 {game.title}
                             </h4>
                             <p className="relative text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">

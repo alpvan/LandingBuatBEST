@@ -118,8 +118,8 @@ const BPITreeLayout = ({ setActiveTab }: { setActiveTab: (tab: string) => void }
         }
     };
 
-    const goldLineClass = "bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]";
-    const goldLineHorizClass = "bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]";
+    const goldLineClass = "bg-gray-300";
+    const goldLineHorizClass = "bg-gray-300";
 
     return (
         <div className="w-full overflow-x-auto pb-4">
@@ -132,7 +132,7 @@ const BPITreeLayout = ({ setActiveTab }: { setActiveTab: (tab: string) => void }
                     </Reveal>
 
                     {/* Vertical Line from Ketua down to horizontal bar */}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-16 -z-10">
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-px h-20 -z-10">
                         <motion.div
                             variants={lineVertical}
                             initial="hidden"
@@ -157,18 +157,17 @@ const BPITreeLayout = ({ setActiveTab }: { setActiveTab: (tab: string) => void }
                         />
 
                         {/* Vertical Riser to meet Ketua (Upwards) */}
-                        <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-8 ${goldLineClass}`}></div>
+                        <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-12 ${goldLineClass}`}></div>
 
-                        {/* Vertical drops to each card with DOTS - Extended to go behind cards */}
+                        {/* Vertical drops to each card - Extended to go behind cards */}
                         {/* Left drop (Sekretaris 1) */}
                         <motion.div
                             variants={lineVertical}
                             initial="hidden"
                             animate="visible"
                             transition={{ delay: 0.5 }}
-                            className={`absolute top-0 left-[16.666%] -translate-x-1/2 w-1 h-24 ${goldLineClass} -z-10`}
+                            className={`absolute top-0 left-[16.666%] -translate-x-1/2 w-px h-32 ${goldLineClass} -z-10`}
                         />
-                        <div className="absolute top-12 left-[16.666%] -translate-x-1/2 w-3 h-3 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,1)] z-10"></div>
 
                         {/* Center drop (Sekretaris 2) */}
                         <motion.div
@@ -176,9 +175,8 @@ const BPITreeLayout = ({ setActiveTab }: { setActiveTab: (tab: string) => void }
                             initial="hidden"
                             animate="visible"
                             transition={{ delay: 0.55 }}
-                            className={`absolute top-0 left-1/2 -translate-x-1/2 w-1 h-24 ${goldLineClass} -z-10`}
+                            className={`absolute top-0 left-1/2 -translate-x-1/2 w-px h-32 ${goldLineClass} -z-10`}
                         />
-                        <div className="absolute top-12 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,1)] z-10"></div>
 
                         {/* Right drop (Bendahara) */}
                         <motion.div
@@ -186,9 +184,8 @@ const BPITreeLayout = ({ setActiveTab }: { setActiveTab: (tab: string) => void }
                             initial="hidden"
                             animate="visible"
                             transition={{ delay: 0.6 }}
-                            className={`absolute top-0 left-[83.333%] -translate-x-1/2 w-1 h-24 ${goldLineClass} -z-10`}
+                            className={`absolute top-0 left-[83.333%] -translate-x-1/2 w-px h-32 ${goldLineClass} -z-10`}
                         />
-                        <div className="absolute top-12 left-[83.333%] -translate-x-1/2 w-3 h-3 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,1)] z-10"></div>
                     </div>
 
                     {/* Three Cards */}
@@ -197,7 +194,7 @@ const BPITreeLayout = ({ setActiveTab }: { setActiveTab: (tab: string) => void }
                             <div className="flex flex-col items-center relative">
                                 {sek1 && <MemberCard {...sek1} />}
                                 {/* Vertical line down from Sek1 to Level 3 */}
-                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-24 -z-10">
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-px h-28 -z-10">
                                     <motion.div
                                         variants={lineVertical}
                                         initial="hidden"
@@ -214,7 +211,7 @@ const BPITreeLayout = ({ setActiveTab }: { setActiveTab: (tab: string) => void }
                                 {sek2 && <MemberCard {...sek2} />}
 
                                 {/* Vertical line down from center Sekretaris to next level */}
-                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-24 -z-10">
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-px h-28 -z-10">
                                     <motion.div
                                         variants={lineVertical}
                                         initial="hidden"
@@ -230,7 +227,7 @@ const BPITreeLayout = ({ setActiveTab }: { setActiveTab: (tab: string) => void }
                             <div className="flex flex-col items-center relative">
                                 {ben && <MemberCard {...ben} />}
                                 {/* Vertical line down from Ben to Level 3 */}
-                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-24 -z-10">
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-28 -z-10">
                                     <motion.div
                                         variants={lineVertical}
                                         initial="hidden"
@@ -257,19 +254,34 @@ const BPITreeLayout = ({ setActiveTab }: { setActiveTab: (tab: string) => void }
                         />
 
                         {/* Vertical Risers to meet Sek/Ben (Upwards) */}
-                        <div className={`absolute bottom-0 left-[16.66%] -translate-x-1/2 w-1 h-12 ${goldLineClass}`}></div>
-                        <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-12 ${goldLineClass}`}></div>
-                        <div className={`absolute bottom-0 left-[83.33%] -translate-x-1/2 w-1 h-12 ${goldLineClass}`}></div>
+                        <div className={`absolute bottom-0 left-[16.66%] -translate-x-1/2 w-1 h-16 ${goldLineClass}`}></div>
+                        <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-16 ${goldLineClass}`}></div>
+                        <div className={`absolute bottom-0 left-[83.33%] -translate-x-1/2 w-1 h-16 ${goldLineClass}`}></div>
 
                         {/* Drops to cards with DOTS - Extended to go behind */}
-                        <motion.div variants={lineVertical} initial="hidden" animate="visible" transition={{ delay: 1.0 }} className={`absolute top-0 left-[16.66%] -translate-x-1/2 w-1 h-24 ${goldLineClass}`} />
-                        <div className="absolute top-12 left-[16.66%] -translate-x-1/2 w-3 h-3 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,1)] z-10"></div>
+                        <motion.div variants={lineVertical} initial="hidden" animate="visible" transition={{ delay: 1.0 }} className={`absolute top-0 left-[16.66%] -translate-x-1/2 w-1 h-32 ${goldLineClass}`} />
+                        <motion.div
+                            initial={{ scale: 0, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ delay: 1.15, duration: 0.3 }}
+                            className="absolute bottom-2 left-[16.66%] -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-amber-300 to-yellow-100 border-2 border-amber-400/60 shadow-[0_0_15px_rgba(251,191,36,0.8),0_0_25px_rgba(251,191,36,0.4),inset_0_1px_2px_rgba(255,255,255,0.5)] z-10 animate-pulse"
+                        ></motion.div>
 
-                        <motion.div variants={lineVertical} initial="hidden" animate="visible" transition={{ delay: 1.0 }} className={`absolute top-0 left-1/2 -translate-x-1/2 w-1 h-24 ${goldLineClass}`} />
-                        <div className="absolute top-12 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,1)] z-10"></div>
+                        <motion.div variants={lineVertical} initial="hidden" animate="visible" transition={{ delay: 1.0 }} className={`absolute top-0 left-1/2 -translate-x-1/2 w-1 h-32 ${goldLineClass}`} />
+                        <motion.div
+                            initial={{ scale: 0, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ delay: 1.2, duration: 0.3 }}
+                            className="absolute bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-amber-300 to-yellow-100 border-2 border-amber-400/60 shadow-[0_0_15px_rgba(251,191,36,0.8),0_0_25px_rgba(251,191,36,0.4),inset_0_1px_2px_rgba(255,255,255,0.5)] z-10 animate-pulse"
+                        ></motion.div>
 
-                        <motion.div variants={lineVertical} initial="hidden" animate="visible" transition={{ delay: 1.0 }} className={`absolute top-0 left-[83.33%] -translate-x-1/2 w-1 h-24 ${goldLineClass}`} />
-                        <div className="absolute top-12 left-[83.33%] -translate-x-1/2 w-3 h-3 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,1)] z-10"></div>
+                        <motion.div variants={lineVertical} initial="hidden" animate="visible" transition={{ delay: 1.0 }} className={`absolute top-0 left-[83.33%] -translate-x-1/2 w-1 h-32 ${goldLineClass}`} />
+                        <motion.div
+                            initial={{ scale: 0, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ delay: 1.25, duration: 0.3 }}
+                            className="absolute bottom-2 left-[83.33%] -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-amber-300 to-yellow-100 border-2 border-amber-400/60 shadow-[0_0_15px_rgba(251,191,36,0.8),0_0_25px_rgba(251,191,36,0.4),inset_0_1px_2px_rgba(255,255,255,0.5)] z-10 animate-pulse"
+                        ></motion.div>
                     </div>
 
                     {/* Three Wakil Ketua Cards */}
@@ -278,7 +290,7 @@ const BPITreeLayout = ({ setActiveTab }: { setActiveTab: (tab: string) => void }
                             <div className="flex flex-col items-center relative">
                                 {wakil1 && <MemberCard {...wakil1} />}
                                 {/* Vertical line down from this Wakil */}
-                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-20 -z-10">
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-24 -z-10">
                                     <motion.div
                                         variants={lineVertical}
                                         initial="hidden"
@@ -294,7 +306,7 @@ const BPITreeLayout = ({ setActiveTab }: { setActiveTab: (tab: string) => void }
                             <div className="flex flex-col items-center relative">
                                 {wakil2 && <MemberCard {...wakil2} />}
                                 {/* Vertical line down from this Wakil */}
-                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-20 -z-10">
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-24 -z-10">
                                     <motion.div
                                         variants={lineVertical}
                                         initial="hidden"
@@ -310,7 +322,7 @@ const BPITreeLayout = ({ setActiveTab }: { setActiveTab: (tab: string) => void }
                             <div className="flex flex-col items-center relative">
                                 {wakil3 && <MemberCard {...wakil3} />}
                                 {/* Vertical line down from this Wakil */}
-                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-20 -z-10">
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-1 h-24 -z-10">
                                     <motion.div
                                         variants={lineVertical}
                                         initial="hidden"
@@ -330,7 +342,7 @@ const BPITreeLayout = ({ setActiveTab }: { setActiveTab: (tab: string) => void }
                         {/* Community Director Column */}
                         <div className="flex flex-col items-center relative">
                             {/* Vertical line from Wakil 1 */}
-                            <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-1 h-16 -z-10">
+                            <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-1 h-20 -z-10">
                                 <motion.div
                                     variants={lineVertical}
                                     initial="hidden"
@@ -348,7 +360,7 @@ const BPITreeLayout = ({ setActiveTab }: { setActiveTab: (tab: string) => void }
                         {/* Internal Director Column */}
                         <div className="flex flex-col items-center relative">
                             {/* Vertical line from Wakil 2 */}
-                            <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-1 h-16 -z-10">
+                            <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-1 h-20 -z-10">
                                 <motion.div
                                     variants={lineVertical}
                                     initial="hidden"
@@ -366,7 +378,7 @@ const BPITreeLayout = ({ setActiveTab }: { setActiveTab: (tab: string) => void }
                         {/* Manager Column */}
                         <div className="flex flex-col items-center relative">
                             {/* Vertical line from Wakil 3 */}
-                            <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-1 h-16 -z-10">
+                            <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-1 h-20 -z-10">
                                 <motion.div
                                     variants={lineVertical}
                                     initial="hidden"
@@ -390,7 +402,7 @@ const BPITreeLayout = ({ setActiveTab }: { setActiveTab: (tab: string) => void }
                         {/* COMMUNITY BRANCH - Horizontal layout */}
                         <div className="flex flex-col items-center relative">
                             {/* Vertical line down from CD */}
-                            <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-1 h-12 -z-10">
+                            <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-1 h-16 -z-10">
                                 <motion.div
                                     variants={lineVertical}
                                     initial="hidden"
@@ -423,7 +435,7 @@ const BPITreeLayout = ({ setActiveTab }: { setActiveTab: (tab: string) => void }
                         {/* INTERNAL BRANCH - Horizontal layout */}
                         <div className="flex flex-col items-center relative">
                             {/* Vertical line down from ID */}
-                            <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-1 h-12 -z-10">
+                            <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-1 h-16 -z-10">
                                 <motion.div
                                     variants={lineVertical}
                                     initial="hidden"
@@ -456,7 +468,7 @@ const BPITreeLayout = ({ setActiveTab }: { setActiveTab: (tab: string) => void }
                         {/* TALENT BRANCH - Horizontal T-junction */}
                         <div className="flex flex-col items-center relative">
                             {/* Vertical line down from Manager */}
-                            <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-1 h-12 -z-10">
+                            <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-1 h-16 -z-10">
                                 <motion.div
                                     variants={lineVertical}
                                     initial="hidden"
@@ -530,10 +542,10 @@ const Organization: React.FC = () => {
     const [activeTab, setActiveTab] = useState('BPI');
 
     return (
-        <section className="relative min-h-screen py-20 overflow-hidden" id="organization">
+        <section className="relative min-h-screen py-20 overflow-hidden bg-gray-50" id="organization">
             {/* Background elements */}
-            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
 
 
 
@@ -543,15 +555,15 @@ const Organization: React.FC = () => {
                         <GlitchReveal>
                             <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-primary/20 to-amber-500/20 border border-primary/30 mx-auto">
                                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                                <span className="text-primary font-display text-xs font-bold tracking-[0.15em] uppercase">
+                                <span className="text-primary font-sans text-xs font-bold tracking-[0.15em] uppercase">
                                     Pengurus
                                 </span>
                             </div>
                         </GlitchReveal>
                         <GlitchReveal>
-                            <h3 className="text-3xl md:text-5xl font-display font-black">
-                                <span className="text-white">Struktur </span>
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-300 to-amber-400">
+                            <h3 className="text-3xl md:text-5xl font-sans font-black">
+                                <span className="text-gray-900">Struktur </span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-500">
                                     <TextScramble text="Kepengurusan" />
                                 </span>
                             </h3>
@@ -567,8 +579,8 @@ const Organization: React.FC = () => {
                                 key={tab}
                                 onClick={() => setActiveTab(tab)}
                                 className={`px-6 py-2 rounded-full text-sm font-bold tracking-wider transition-all duration-300 border ${activeTab === tab
-                                    ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.3)]'
-                                    : 'bg-transparent text-white/50 border-white/10 hover:border-white/30 hover:text-white'
+                                    ? 'bg-orange-500 text-white border-orange-500 shadow-lg'
+                                    : 'bg-white text-gray-600 border-gray-300 hover:border-orange-400 hover:text-orange-500'
                                     }`}
                             >
                                 {tab}

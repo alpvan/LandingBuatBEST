@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/Navbar';
 import Loader from './components/Loader';
 import BackgroundParticles from './components/BackgroundParticles';
 import Hero from './components/Hero';
 import About from './components/About';
 import TeamLogos from './components/TeamLogos';
-import Organization from './components/Organization';
+// import Organization from './components/Organization';
 import Prestasi from './components/Prestasi';
 import Events from './components/Events';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import { initScrollTransitions } from './utils/scrollTransitions';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
@@ -23,8 +25,14 @@ const App: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    // Initialize scroll transitions after component mounts
+    const cleanup = initScrollTransitions();
+    return cleanup;
+  }, [loading]);
+
   return (
-    <>
+    <ThemeProvider>
       {loading && <Loader />}
 
       {/* 
@@ -42,7 +50,7 @@ const App: React.FC = () => {
           <Hero />
           <About />
 
-          <Organization />
+          {/* <Organization /> */}
           <Prestasi />
           <Events />
           <Contact />
@@ -51,7 +59,7 @@ const App: React.FC = () => {
         <Footer />
         <ScrollToTop />
       </div>
-    </>
+    </ThemeProvider>
   );
 };
 

@@ -80,7 +80,7 @@ const EventDetailsModal: React.FC<EventDetailsModalProps> = ({ isOpen, onClose, 
         <div className="p-8 overflow-y-auto custom-scrollbar">
           <div className="mb-6 border-b border-gray-800 pb-6">
             <span className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-2 block">Detail Acara</span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white leading-tight mb-4">{event.title}</h2>
+            <h2 className="text-3xl md:text-4xl font-sans font-bold text-white leading-tight mb-4">{event.title}</h2>
             <div className="flex flex-wrap items-center text-gray-400 text-sm gap-6">
               <span className="flex items-center gap-2"><Calendar className="w-4 h-4 text-primary" /> {event.date} {event.month}</span>
               {event.details?.location && <span className="flex items-center gap-2"><MapPin className="w-4 h-4 text-primary" /> {event.details.location}</span>}
@@ -88,7 +88,7 @@ const EventDetailsModal: React.FC<EventDetailsModalProps> = ({ isOpen, onClose, 
           </div>
 
           <div className="prose prose-invert max-w-none mb-8">
-            <h4 className="text-white font-display font-bold text-lg mb-2">Deskripsi</h4>
+            <h4 className="text-white font-sans font-bold text-lg mb-2">Deskripsi</h4>
             <p className="text-gray-300 leading-relaxed text-sm md:text-base">
               {event.details?.fullDesc || event.desc}
             </p>
@@ -122,7 +122,7 @@ const EventDetailsModal: React.FC<EventDetailsModalProps> = ({ isOpen, onClose, 
             <div className="pt-4 border-t border-gray-800">
               <button
                 onClick={onRegister}
-                className="w-full bg-primary text-black font-display font-bold text-lg py-4 hover:bg-white hover:shadow-glow transition-all duration-300 clip-polygon uppercase tracking-wider flex items-center justify-center gap-2"
+                className="w-full bg-primary text-black font-sans font-bold text-lg py-4 hover:bg-white hover:shadow-glow transition-all duration-300 clip-polygon uppercase tracking-wider flex items-center justify-center gap-2"
               >
                 {event.btn === 'Daftar' ? 'Daftar Sekarang' : 'Informasi Lebih Lanjut'}
               </button>

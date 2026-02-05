@@ -88,7 +88,7 @@ const Events: React.FC = () => {
               <GlitchReveal>
                 <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-primary/20 to-amber-500/20 border border-primary/30 mx-auto">
                   <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                  <span className="text-primary font-display text-xs font-bold tracking-[0.15em] uppercase">
+                  <span className="text-primary font-sans text-xs font-bold tracking-[0.15em] uppercase">
                     Acara
                   </span>
                 </div>
@@ -96,7 +96,7 @@ const Events: React.FC = () => {
 
               {/* Title */}
               <GlitchReveal>
-                <h3 className="text-3xl md:text-5xl font-display font-black">
+                <h3 className="text-3xl md:text-5xl font-sans font-black">
                   <span className="text-white">Jadwal </span>
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-300 to-amber-400">
                     Mendatang
@@ -115,7 +115,7 @@ const Events: React.FC = () => {
                   }`}>
                   {/* Date */}
                   <div className="flex-shrink-0 text-center md:text-left min-w-[100px] md:border-r md:border-white/10 md:pr-6">
-                    <span className={`block text-4xl font-display font-black transition-colors ${event.active ? 'text-primary group-hover:text-white' : 'text-gray-500'
+                    <span className={`block text-4xl font-sans font-black transition-colors ${event.active ? 'text-primary group-hover:text-white' : 'text-gray-500'
                       }`}>
                       {event.date}
                     </span>
@@ -126,7 +126,7 @@ const Events: React.FC = () => {
 
                   {/* Content */}
                   <div className="flex-grow text-center md:text-left">
-                    <h4 className={`text-xl font-bold font-display transition-colors mb-2 ${event.active ? 'text-white group-hover:text-primary' : 'text-gray-300'
+                    <h4 className={`text-xl font-bold font-sans transition-colors mb-2 ${event.active ? 'text-white group-hover:text-primary' : 'text-gray-300'
                       }`}>
                       {event.title}
                     </h4>

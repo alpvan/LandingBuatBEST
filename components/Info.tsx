@@ -140,13 +140,13 @@ const Info: React.FC = () => {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-primary/20 to-amber-500/20 border border-primary/30 mx-auto">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-              <span className="text-primary font-display text-xs font-bold tracking-[0.15em] uppercase">
+              <span className="text-primary font-sans text-xs font-bold tracking-[0.15em] uppercase">
                 Informasi
               </span>
             </div>
 
             {/* Title */}
-            <h3 className="text-3xl md:text-5xl font-display font-black">
+            <h3 className="text-3xl md:text-5xl font-sans font-black">
               <span className="text-white">Struktur </span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-300 to-amber-400">
                 <TextScramble text="Kepengurusan" />
@@ -185,7 +185,7 @@ const Info: React.FC = () => {
                 </div>
 
                 {/* Content */}
-                <h4 className="relative text-xl font-display font-bold mb-3 text-white group-hover:text-primary transition-colors">
+                <h4 className="relative text-xl font-sans font-bold mb-3 text-white group-hover:text-primary transition-colors">
                   {game.title}
                 </h4>
                 <p className="relative text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">

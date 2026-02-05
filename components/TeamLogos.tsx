@@ -17,7 +17,7 @@ const TeamLogos: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col items-center justify-center">
           <Reveal>
-            <h3 className="text-gray-500 font-display text-xs font-bold tracking-[0.3em] uppercase mb-8">
+            <h3 className="text-gray-500 font-sans text-xs font-bold tracking-[0.3em] uppercase mb-8">
               Official Game Divisions
             </h3>
           </Reveal>
@@ -36,7 +36,7 @@ const TeamLogos: React.FC = () => {
                       className="w-full h-full object-contain opacity-60 group-hover:opacity-100 transition-all duration-300 grayscale group-hover:grayscale-0 rounded-full"
                     />
                   </div>
-                  <span className="text-xs font-display font-bold text-gray-500 group-hover:text-primary transition-colors tracking-wider text-center">
+                  <span className="text-xs font-sans font-bold text-gray-500 group-hover:text-primary transition-colors tracking-wider text-center">
                     {team.name}
                   </span>
                 </div>

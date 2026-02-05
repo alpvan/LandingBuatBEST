@@ -71,7 +71,7 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose, 
             <>
               <div className="mb-8 border-b border-gray-800 pb-4">
                 <h4 className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-2">Pendaftaran Acara</h4>
-                <h2 className="text-2xl md:text-3xl font-display font-bold text-white leading-tight">
+                <h2 className="text-2xl md:text-3xl font-sans font-bold text-white leading-tight">
                   {eventName}
                 </h2>
               </div>
@@ -119,7 +119,7 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose, 
                 <div className="pt-4">
                   <button
                     type="submit"
-                    className="w-full bg-primary text-black font-display font-bold text-lg py-4 hover:bg-white hover:shadow-glow transition-all duration-300 clip-polygon"
+                    className="w-full bg-primary text-black font-sans font-bold text-lg py-4 hover:bg-white hover:shadow-glow transition-all duration-300 clip-polygon"
                   >
                     KONFIRMASI PENDAFTARAN
                   </button>
@@ -132,7 +132,7 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose, 
               <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-6">
                 <CheckCircle className="w-10 h-10 text-primary drop-shadow-[0_0_10px_rgba(255,215,0,0.5)]" />
               </div>
-              <h3 className="text-2xl font-display font-bold text-white mb-2">Pendaftaran Berhasil!</h3>
+              <h3 className="text-2xl font-sans font-bold text-white mb-2">Pendaftaran Berhasil!</h3>
               <p className="text-gray-400 mb-8 max-w-xs">
                 Anda berhasil mendaftar untuk <span className="text-primary">{eventName}</span>. Periksa email Anda untuk instruksi lebih lanjut.
               </p>

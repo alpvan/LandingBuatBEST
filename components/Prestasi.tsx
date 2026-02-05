@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Reveal from './Reveal';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
 import ParallaxSection from './ParallaxSection';
 import GlitchReveal from './GlitchReveal';
 import { motion } from 'framer-motion';
@@ -10,9 +9,20 @@ const Prestasi: React.FC = () => {
     const [width, setWidth] = useState(0);
 
     useEffect(() => {
-        if (carouselRef.current) {
-            setWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth);
-        }
+        const updateWidth = () => {
+            if (carouselRef.current) {
+                setWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth);
+            }
+        };
+
+        // Initial calculation
+        updateWidth();
+
+        // Add event listener
+        window.addEventListener('resize', updateWidth);
+
+        // Cleanup
+        return () => window.removeEventListener('resize', updateWidth);
     }, []);
 
     const images = [
@@ -42,14 +52,14 @@ const Prestasi: React.FC = () => {
                             <GlitchReveal>
                                 <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-primary/20 to-amber-500/20 border border-primary/30">
                                     <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                                    <span className="text-primary font-display text-xs font-bold tracking-[0.15em] uppercase">
+                                    <span className="text-primary font-sans text-xs font-bold tracking-[0.15em] uppercase">
                                         Prestasi
                                     </span>
                                 </div>
                             </GlitchReveal>
 
                             <GlitchReveal>
-                                <h3 className="text-3xl md:text-5xl font-display font-black">
+                                <h3 className="text-3xl md:text-5xl font-sans font-black">
                                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-300 to-amber-400">
                                         Pencapaian
                                     </span>
@@ -85,7 +95,7 @@ const Prestasi: React.FC = () => {
                                     <span className="inline-block px-3 py-1 mb-2 rounded-lg bg-primary/20 text-primary text-[10px] font-bold border border-primary/30 backdrop-blur-sm">
                                         {img.desc}
                                     </span>
-                                    <h4 className="text-white font-display font-bold text-lg leading-tight group-hover:text-primary transition-colors">
+                                    <h4 className="text-white font-sans font-bold text-lg leading-tight group-hover:text-primary transition-colors">
                                         {img.title}
                                     </h4>
                                 </div>

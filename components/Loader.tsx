@@ -47,7 +47,7 @@ const Loader: React.FC = () => {
           </div>
 
           {/* Text */}
-          <h1 className="text-xl md:text-2xl font-display font-bold tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-200 to-amber-500 animate-pulse mt-4">
+          <h1 className="text-xl md:text-2xl font-sans font-bold tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-200 to-amber-500 animate-pulse mt-4">
             BRAWIJAYA ESPORT
           </h1>
         </div>

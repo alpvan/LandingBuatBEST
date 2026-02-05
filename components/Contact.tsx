@@ -24,7 +24,7 @@ const Contact: React.FC = () => {
             <GlitchReveal>
               <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-primary/20 to-amber-500/20 border border-primary/30">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                <span className="text-primary font-display text-xs font-bold tracking-[0.15em] uppercase">
+                <span className="text-primary font-sans text-xs font-bold tracking-[0.15em] uppercase">
                   Saran
                 </span>
               </div>
@@ -32,37 +32,37 @@ const Contact: React.FC = () => {
 
             {/* Title */}
             <GlitchReveal>
-              <h3 className="text-3xl md:text-5xl font-display font-black mb-6 leading-tight">
-                <span className="text-white">Hp ku rusak, jadi </span>
+              <h3 className="text-3xl md:text-5xl font-sans font-black mb-6 leading-tight">
+                <span className="text-white">Punya Pertanyaan </span>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-300 to-amber-400">
-                  dm ig @itsfrrel aja
+                  atau Saran?
                 </span>
                 <br></br>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-300 to-amber-400">
-                  Ini Nanti Ku ganti Koq, Belum FInal
+                  Hubungi Kami
                 </span>
               </h3>
             </GlitchReveal>
 
             <p className="text-gray-400 mb-8 font-medium italic">
-              kalo ada saran sung aja DM
+              Kami siap mendengar masukan Anda untuk perkembangan BEST UB
             </p>
 
             {/* Button */}
             <div className="relative group">
               <a
-                href="https://www.instagram.com/itsfrrel/"
+                href="https://www.instagram.com/brawijaya_esports/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-yellow-400 text-black font-display text-sm font-bold uppercase tracking-wider hover:shadow-[0_0_40px_rgba(255,215,0,0.4)] hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-yellow-400 text-black font-sans text-sm font-bold uppercase tracking-wider hover:shadow-[0_0_40px_rgba(255,215,0,0.4)] hover:scale-105 transition-all duration-300"
               >
                 <Instagram className="w-5 h-5" />
-                WA Kurang Fast Respon
+                Kirim Pesan via Instagram
               </a>
 
               {/* Tooltip */}
               <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-black/90 text-white px-4 py-2 rounded-lg text-sm font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none border border-primary/50">
-                Yang bikin website butuh DUIT
+                Follow Instagram Kami
                 <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-black/90 rotate-45 border-r border-b border-primary/50"></div>
               </div>
             </div>
