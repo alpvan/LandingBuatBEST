@@ -28,3 +28,9 @@ Write-Host "  5. Download google-services.json" -ForegroundColor Gray
 Write-Host "  6. Jalankan perintah ini untuk encode:" -ForegroundColor Gray
 Write-Host '     [Convert]::ToBase64String([IO.File]::ReadAllBytes("C:\path\to\google-services.json")) | Set-Clipboard' -ForegroundColor Cyan
 Write-Host "  7. Buka GitHub → Settings → Secrets → GOOGLE_SERVICES_JSON → paste" -ForegroundColor Gray
+Write-Host ""
+Write-Host "Untuk Push Notification iOS (Opsional):" -ForegroundColor White
+Write-Host "  1. Buka Firebase Console → Add app → iOS" -ForegroundColor Gray
+Write-Host "  2. Apple bundle ID: id.ac.brawijaya.esport" -ForegroundColor Gray
+Write-Host "  3. Download GoogleService-Info.plist" -ForegroundColor Gray
+Write-Host "  4. Encode ke Base64 (sama seperti Android) dan simpan sebagai GOOGLE_SERVICE_INFO_PLIST di GitHub Secrets" -ForegroundColor Gray
