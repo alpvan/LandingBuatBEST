@@ -35,7 +35,6 @@ export const useContentStore = create<ContentState>((set, get) => ({
                 const data = docSnap.data();
                 set({ hero: data.hero || defaultContent.hero });
             } else {
-                // Document doesn't exist, create it with default content
                 await setDoc(docRef, defaultContent);
                 set({ hero: defaultContent.hero });
             }
@@ -50,7 +49,6 @@ export const useContentStore = create<ContentState>((set, get) => ({
         const currentHero = get().hero;
         const updatedHero = { ...currentHero, ...newHeroData };
 
-        // Optimistic UI Update
         set({ hero: updatedHero });
 
         try {
@@ -58,7 +56,6 @@ export const useContentStore = create<ContentState>((set, get) => ({
             await setDoc(docRef, { hero: updatedHero }, { merge: true });
         } catch (error) {
             console.error("Error updating content:", error);
-            // Revert if failed
             set({ hero: currentHero });
             throw error;
         }

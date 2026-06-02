@@ -11,13 +11,11 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [theme, setTheme] = useState<Theme>(() => {
-        // Check localStorage first, default to dark
         const savedTheme = localStorage.getItem('theme') as Theme | null;
         return savedTheme || 'dark';
     });
 
     useEffect(() => {
-        // Apply theme class to document root
         const root = document.documentElement;
         if (theme === 'light') {
             root.classList.add('light-theme');
@@ -25,7 +23,6 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
             root.classList.remove('light-theme');
         }
 
-        // Persist to localStorage
         localStorage.setItem('theme', theme);
     }, [theme]);
 
