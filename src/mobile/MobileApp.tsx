@@ -18,12 +18,9 @@ const MobileApp: React.FC = () => {
   useEffect(() => {
     const init = async () => {
       if (Capacitor.isNativePlatform()) {
-        // Configure status bar
         await StatusBar.setStyle({ style: Style.Dark });
         await StatusBar.setBackgroundColor({ color: '#050505' });
-        // Hide splash screen
         await SplashScreen.hide({ fadeOutDuration: 300 });
-        // Init push notifications
         await initPushNotifications();
       }
     };
@@ -49,22 +46,18 @@ const MobileApp: React.FC = () => {
 
   return (
     <div className="mobile-app-root">
-      {/* Status bar safe area */}
       <div className="mobile-status-bar-spacer" />
 
-      {/* Page content */}
       <main className="mobile-page-content">
         {renderPage()}
       </main>
 
-      {/* Bottom navigation */}
       <BottomNavBar
         activeTab={activeTab}
         onTabChange={setActiveTab}
         notifCount={notifCount}
       />
 
-      {/* Bottom safe area (home indicator on iPhone) */}
       <div className="mobile-bottom-safe-area" />
     </div>
   );
