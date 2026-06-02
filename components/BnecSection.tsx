@@ -442,7 +442,7 @@ const BnecSection: React.FC = () => {
       <SceneBg />
 
       {/* ════════════════ HERO BANNER ════════════════ */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-20">
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 pt-32 pb-24 md:pt-24 md:pb-20">
 
         {/* Top eyebrow badge */}
         <GlitchReveal>

@@ -35,8 +35,10 @@ const App: React.FC = () => {
     };
   }, [setUser, setLoading]);
 
-  // ── Render native mobile app when running inside Capacitor ──
-  if (Capacitor.isNativePlatform()) {
+  const isMobileTarget = import.meta.env.VITE_BUILD_TARGET === 'mobile';
+
+  // ── Render native mobile app when running inside Capacitor or explicitly targeting mobile ──
+  if (Capacitor.isNativePlatform() || isMobileTarget) {
     return <MobileApp />;
   }
 

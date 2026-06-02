@@ -69,7 +69,7 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-40">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-24 md:pt-24 md:pb-40">
 
 
 
@@ -228,7 +228,7 @@ const Hero: React.FC = () => {
                     <div key={index} className="text-center sm:text-left">
                       <div className="flex items-center justify-center sm:justify-start gap-1 md:gap-2 mb-1">
                         <stat.icon className="w-3 h-3 md:w-4 md:h-4 text-primary" />
-                        <span className="text-xl sm:text-2xl md:text-3xl font-sans font-black text-white">
+                        <span className="text-2xl sm:text-3xl md:text-4xl font-sans font-black text-white">
                           <CountUp end={stat.end} suffix={stat.suffix} />
                         </span>
                       </div>
@@ -307,7 +307,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Sponsor Space */}
-      <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent border-t border-white/5 py-6 z-40 overflow-hidden group">
+      <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent border-t border-white/5 py-4 md:py-6 z-40 overflow-hidden group">
         <div className="flex items-center relative">
           {/* Label */}
           <div className="hidden lg:flex items-center h-full px-8 bg-black/50 backdrop-blur-xl border-r border-white/10 z-10 absolute left-0 top-0 bottom-0">

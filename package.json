@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "mobile:dev": "cross-env VITE_BUILD_TARGET=mobile vite",
     "build": "vite build",
     "preview": "vite preview",
     "mobile:build": "cross-env VITE_BUILD_TARGET=mobile vite build",
