@@ -7,6 +7,7 @@ import About from '../../components/About';
 import TeamLogos from '../../components/TeamLogos';
 import Prestasi from '../../components/Prestasi';
 import Events from '../../components/Events';
+import BnecSection from '../../components/BnecSection';
 import Contact from '../../components/Contact';
 import Footer from '../../components/Footer';
 import ScrollToTop from '../../components/ScrollToTop';
@@ -39,6 +40,7 @@ export const LandingPage: React.FC = () => {
 
                 <main className="relative z-10">
                     <Hero />
+                    <BnecSection />
                     <About />
                     <Prestasi />
                     <Events />

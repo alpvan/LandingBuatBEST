@@ -20,7 +20,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSupport }) => {
         window.requestAnimationFrame(() => {
           setIsScrolled(window.scrollY > 50);
 
-          const sections = ['about', 'prestasi', 'events', 'committee', 'contact'];
+          const sections = ['bnec', 'about', 'prestasi', 'events', 'committee', 'contact'];
           let currentSection = '';
 
           for (const section of sections) {
@@ -57,11 +57,12 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSupport }) => {
   }, []);
 
   const navLinks = [
+    { name: 'BNEC', href: '#bnec', id: 'bnec', special: true },
     { name: 'Profile', href: '#about', id: 'about' },
     { name: 'Prestasi', href: '#prestasi', id: 'prestasi' },
     { name: 'Acara', href: '#events', id: 'events' },
     { name: 'Kerja Sama', href: '#contact', id: 'contact' },
-  ] as Array<{ name: string; href: string; id: string; external?: boolean }>;
+  ] as Array<{ name: string; href: string; id: string; external?: boolean; special?: boolean }>;
 
   return (
     <nav
@@ -99,12 +100,18 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSupport }) => {
                     href={link.href}
                     target={link.external || link.href.startsWith('http') ? '_blank' : undefined}
                     rel={link.external || link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className={`relative px-4 py-1.5 rounded-lg font-sans text-[11px] font-bold uppercase tracking-widest transition-all duration-300 ${activeSection === link.id
-                      ? 'text-black bg-primary shadow-[0_0_15px_rgba(255,215,0,0.3)]'
-                      : 'text-gray-300 hover:text-white hover:bg-white/10'
-                      }`}
+                    className={`relative px-4 py-1.5 rounded-lg font-sans text-[11px] font-bold uppercase tracking-widest transition-all duration-300 ${
+                      link.special
+                        ? activeSection === link.id
+                          ? 'text-white bg-purple-600 shadow-[0_0_15px_rgba(168,85,247,0.5)]'
+                          : 'text-purple-300 bg-purple-950/60 border border-purple-500/50 hover:bg-purple-900/70 hover:text-purple-200 hover:border-purple-400 hover:shadow-[0_0_12px_rgba(168,85,247,0.4)]'
+                        : activeSection === link.id
+                        ? 'text-black bg-primary shadow-[0_0_15px_rgba(255,215,0,0.3)]'
+                        : 'text-gray-300 hover:text-white hover:bg-white/10'
+                    }`}
+                    style={link.special ? { fontFamily: "'Courier New', monospace" } : {}}
                   >
-                  {link.name}
+                  {link.special && <span className="mr-1 text-purple-400">▶</span>}{link.name}
                 </a>
               ))}
             </div>
@@ -168,13 +175,19 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenSupport }) => {
                 target={link.external ? '_blank' : undefined}
                 rel={link.external ? 'noopener noreferrer' : undefined}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`flex items-center px-4 py-3 rounded-xl font-sans text-sm font-medium transition-all duration-300 ${activeSection === link.id
-                  ? 'bg-primary text-black'
-                  : 'text-gray-300 hover:bg-white/10 hover:text-white'
-                  }`}
+                className={`flex items-center px-4 py-3 rounded-xl font-sans text-sm font-medium transition-all duration-300 ${
+                  link.special
+                    ? activeSection === link.id
+                      ? 'bg-purple-600 text-white'
+                      : 'text-purple-300 bg-purple-950/40 border border-purple-500/40 hover:bg-purple-900/50 hover:text-purple-200'
+                    : activeSection === link.id
+                    ? 'bg-primary text-black'
+                    : 'text-gray-300 hover:bg-white/10 hover:text-white'
+                }`}
+                style={link.special ? { fontFamily: "'Courier New', monospace" } : {}}
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mr-3"></span>
-                {link.name}
+                <span className={`w-1.5 h-1.5 rounded-full mr-3 ${link.special ? 'bg-purple-400' : 'bg-primary'}`} />
+                {link.special && '▶ '}{link.name}
               </a>
             ))}
           </div>

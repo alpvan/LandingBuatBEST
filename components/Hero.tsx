@@ -131,24 +131,94 @@ const Hero: React.FC = () => {
 
               {/* CTA Buttons */}
               <div className="mt-8 md:mt-10 flex flex-col w-full sm:flex-row sm:w-auto gap-4">
+
+                {/* ── Button 1: Tentang Kami (Gold) ── */}
                 <a
                   href="#about"
-                  className="group relative px-6 md:px-8 py-3.5 md:py-4 bg-gradient-to-r from-primary to-yellow-400 text-black font-sans font-bold text-sm md:text-base rounded-xl
-                           hover:shadow-[0_0_40px_rgba(255,215,0,0.4)] hover:scale-105
-                           transition-all duration-300 text-center flex items-center justify-center gap-2 w-full sm:w-auto"
+                  className="hero-btn-gold group relative overflow-hidden rounded-2xl font-sans font-black
+                             text-sm md:text-base text-center flex items-center justify-center gap-2.5
+                             w-full sm:w-auto px-7 md:px-9 py-3.5 md:py-4
+                             transition-all duration-300 hover:scale-[1.04]"
                 >
-                  <Info className="w-4 h-4" />
-                  TENTANG KAMI
+                  {/* Main gradient fill */}
+                  <span className="absolute inset-0 bg-gradient-to-br from-yellow-300 via-primary to-amber-500
+                    group-hover:from-yellow-200 group-hover:via-yellow-400 group-hover:to-amber-400
+                    transition-all duration-500 rounded-2xl" />
+                  {/* Shimmer sweep */}
+                  <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden rounded-2xl">
+                    <span className="absolute inset-y-0 -left-full w-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent
+                      group-hover:left-full transition-all duration-700 ease-in-out" />
+                  </span>
+                  {/* Bottom glow */}
+                  <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-3/4 h-4
+                    bg-yellow-400/50 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  {/* Inner border highlight */}
+                  <span className="absolute inset-0 rounded-2xl border border-white/30 group-hover:border-white/50 transition-all" />
+                  {/* Content */}
+                  <Info className="relative w-4 h-4 text-black/80 group-hover:rotate-6 transition-transform duration-300" />
+                  <span className="relative text-black tracking-wide">TENTANG KAMI</span>
                 </a>
-                <a
-                  href="#events"
-                  className="px-6 md:px-8 py-3.5 md:py-4 bg-white/5 border border-white/20 text-white font-sans font-bold text-sm md:text-base rounded-xl
-                           hover:bg-white/10 hover:border-primary/50 hover:text-primary
-                           transition-all duration-300 text-center flex items-center justify-center gap-2 w-full sm:w-auto"
+
+                {/* ── Button 2: BNEC 2026 ── */}
+                <button
+                  onClick={() => {
+                    document.getElementById('bnec')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }}
+                  className="hero-btn-bnec group relative overflow-hidden rounded-2xl
+                             text-center flex items-center justify-center gap-3
+                             w-full sm:w-auto px-7 md:px-9 py-3 md:py-3.5
+                             transition-all duration-300 hover:scale-[1.04]
+                             border border-purple-500/70 bg-purple-950/70 text-white"
                 >
-                  <Calendar className="w-4 h-4" />
-                  DAFTAR
-                </a>
+                  {/* Gradient bg */}
+                  <span className="absolute inset-0 bg-gradient-to-br from-purple-800/80 via-violet-700/60 to-purple-900/80
+                    group-hover:from-purple-700 group-hover:via-violet-600 group-hover:to-purple-800
+                    transition-all duration-500 rounded-2xl" />
+                  {/* Shimmer sweep */}
+                  <span className="absolute inset-0 overflow-hidden rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="absolute inset-y-0 -left-full w-1/2 bg-gradient-to-r from-transparent via-purple-300/15 to-transparent
+                      group-hover:left-full transition-all duration-700 ease-in-out" />
+                  </span>
+                  {/* Glows */}
+                  <span className="absolute -inset-0.5 rounded-2xl bg-purple-600/0 group-hover:bg-purple-600/20 blur-sm transition-all duration-300" />
+                  <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-3/4 h-4
+                    bg-purple-500/40 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  {/* Pixel corners */}
+                  <span className="absolute top-1.5 left-1.5 w-2.5 h-2.5 border-t-2 border-l-2 border-purple-400/70 rounded-tl-sm" />
+                  <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 border-t-2 border-r-2 border-purple-400/70 rounded-tr-sm" />
+                  <span className="absolute bottom-1.5 left-1.5 w-2.5 h-2.5 border-b-2 border-l-2 border-purple-400/70 rounded-bl-sm" />
+                  <span className="absolute bottom-1.5 right-1.5 w-2.5 h-2.5 border-b-2 border-r-2 border-purple-400/70 rounded-br-sm" />
+
+                  {/* Text block */}
+                  <span className="relative z-10 flex flex-col items-start leading-none">
+                    <span
+                      className="text-[10px] font-bold tracking-[0.35em] text-purple-400
+                        group-hover:text-purple-300 transition-colors uppercase"
+                      style={{ fontFamily: "'Courier New', monospace" }}
+                    >
+                      Turnamen Nasional
+                    </span>
+                    <span
+                      className="text-lg md:text-xl font-black tracking-wider text-white
+                        group-hover:text-purple-100 transition-colors"
+                      style={{ fontFamily: "'Courier New', monospace", lineHeight: 1.1 }}
+                    >
+                      BNEC <span className="text-purple-300 group-hover:text-yellow-300 transition-colors">2026</span>
+                    </span>
+                  </span>
+
+                  {/* Live badge */}
+                  <span className="relative z-10 self-start mt-0.5 inline-flex items-center gap-1
+                    text-[8px] font-black uppercase tracking-widest
+                    bg-purple-950/90 border border-purple-600/50 text-purple-400
+                    px-1.5 py-0.5 rounded-sm"
+                    style={{ fontFamily: "'Courier New', monospace" }}
+                  >
+                    <span className="w-1 h-1 bg-purple-400 rounded-full animate-pulse" />
+                    NEW
+                  </span>
+                </button>
+
               </div>
 
               {/* Stats */}
