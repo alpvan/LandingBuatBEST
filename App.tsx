@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
+import { Capacitor } from '@capacitor/core';
 import { auth } from './src/firebase';
 import { useAuthStore } from './src/store/useAuthStore';
 
@@ -8,6 +9,7 @@ import { LandingPage } from './src/pages/LandingPage';
 import { Login } from './src/pages/Login';
 import { AdminDashboard } from './src/pages/AdminDashboard';
 import { AdminRoute } from './src/components/AdminRoute';
+import MobileApp from './src/mobile/MobileApp';
 
 const App: React.FC = () => {
   const { setUser, setLoading } = useAuthStore();
@@ -33,6 +35,12 @@ const App: React.FC = () => {
     };
   }, [setUser, setLoading]);
 
+  // ── Render native mobile app when running inside Capacitor ──
+  if (Capacitor.isNativePlatform()) {
+    return <MobileApp />;
+  }
+
+  // ── Render web app ──
   return (
     <Router basename="/brawijaya-esport">
       <Routes>
@@ -51,4 +59,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default App;

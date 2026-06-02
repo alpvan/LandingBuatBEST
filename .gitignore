@@ -22,3 +22,13 @@ Thumbs.db
 # Logs
 *.log
 npm-debug.log*
+
+# Android - build outputs & secrets
+android/app/build/
+android/build/
+android/.gradle/
+android/app/google-services.json
+android/app/release.keystore
+android/local.properties
+*.apk
+*.aab

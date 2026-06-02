@@ -4,9 +4,11 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
+  // Use base '/' for mobile (Capacitor) builds, '/brawijaya-esport/' for web
+  const isMobile = env.VITE_BUILD_TARGET === 'mobile';
   return {
     root: process.cwd(),
-    base: '/brawijaya-esport/',
+    base: isMobile ? '/' : '/brawijaya-esport/',
     server: {
       port: 3000,
       host: '0.0.0.0',

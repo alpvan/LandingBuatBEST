@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Brawijaya Esport</string>
+    <string name="title_activity_main">Brawijaya Esport</string>
+    <string name="package_name">id.ac.brawijaya.esport</string>
+    <string name="custom_url_scheme">id.ac.brawijaya.esport</string>
+</resources>

@@ -1,0 +1,144 @@
+name: 🎮 Build Android APK
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+    inputs:
+      release_type:
+        description: 'Build type'
+        required: true
+        default: 'debug'
+        type: choice
+        options:
+          - debug
+          - release
+
+jobs:
+  build-android:
+    name: Build APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      # ── 1. Checkout ──
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v4
+
+      # ── 2. Setup Node.js ──
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # ── 3. Setup Java JDK ──
+      - name: ☕ Setup Java JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      # ── 4. Setup Android SDK ──
+      - name: 🤖 Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      # ── 5. Install Node dependencies ──
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      # ── 6. Build Vite for mobile ──
+      - name: 🏗️ Build web assets (mobile mode)
+        run: npm run mobile:build
+        env:
+          VITE_BUILD_TARGET: mobile
+          VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
+          VITE_FIREBASE_AUTH_DOMAIN: ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}
+          VITE_FIREBASE_PROJECT_ID: ${{ secrets.VITE_FIREBASE_PROJECT_ID }}
+          VITE_FIREBASE_STORAGE_BUCKET: ${{ secrets.VITE_FIREBASE_STORAGE_BUCKET }}
+          VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
+          VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
+          VITE_FIREBASE_DATABASE_URL: ${{ secrets.VITE_FIREBASE_DATABASE_URL }}
+
+      # ── 7. Add Android platform (if not already added) ──
+      - name: 📱 Add Android platform
+        run: |
+          if [ ! -d "android" ]; then
+            npx cap add android
+          fi
+
+      # ── 8. Decode google-services.json ──
+      - name: 🔑 Setup google-services.json
+        run: |
+          echo "${{ secrets.GOOGLE_SERVICES_JSON }}" | base64 -d > android/app/google-services.json
+
+      # ── 9. Sync Capacitor ──
+      - name: 🔄 Sync Capacitor
+        run: npx cap sync android
+
+      # ── 10. Make Gradle executable ──
+      - name: 🔧 Make Gradle executable
+        run: chmod +x android/gradlew
+
+      # ── 11. Build APK (debug) ──
+      - name: 🔨 Build Debug APK
+        if: github.event.inputs.release_type != 'release'
+        run: |
+          cd android
+          ./gradlew assembleDebug --no-daemon
+
+      # ── 12. Build APK (release, signed) ──
+      - name: 🔏 Build Release APK (Signed)
+        if: github.event.inputs.release_type == 'release'
+        run: |
+          # Decode keystore
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/release.keystore
+          cd android
+          ./gradlew assembleRelease \
+            -Pandroid.injected.signing.store.file=$(pwd)/app/release.keystore \
+            -Pandroid.injected.signing.store.password="${{ secrets.KEYSTORE_PASSWORD }}" \
+            -Pandroid.injected.signing.key.alias="${{ secrets.KEY_ALIAS }}" \
+            -Pandroid.injected.signing.key.password="${{ secrets.KEY_PASSWORD }}" \
+            --no-daemon
+
+      # ── 13. Upload debug APK ──
+      - name: 📤 Upload Debug APK
+        if: github.event.inputs.release_type != 'release'
+        uses: actions/upload-artifact@v4
+        with:
+          name: brawijaya-esport-debug-${{ github.sha }}
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 30
+
+      # ── 14. Upload release APK ──
+      - name: 📤 Upload Release APK
+        if: github.event.inputs.release_type == 'release'
+        uses: actions/upload-artifact@v4
+        with:
+          name: brawijaya-esport-release-${{ github.sha }}
+          path: android/app/build/outputs/apk/release/app-release.apk
+          retention-days: 90
+
+      # ── 15. Create GitHub Release (on release build) ──
+      - name: 🚀 Create GitHub Release
+        if: github.event.inputs.release_type == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ github.run_number }}
+          name: Brawijaya Esport v${{ github.run_number }}
+          body: |
+            ## 🎮 Brawijaya Esport Mobile App
+            
+            ### What's new
+            - Auto-built from commit ${{ github.sha }}
+            - Build date: ${{ github.event.head_commit.timestamp }}
+            
+            ### Installation
+            1. Download `brawijaya-esport.apk`
+            2. Enable "Install from unknown sources" on your Android device
+            3. Install the APK
+          files: android/app/build/outputs/apk/release/app-release.apk
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
